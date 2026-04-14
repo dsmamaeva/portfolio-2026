@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дарья Мамаева | Медиаменеджер & Журналист</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #555555;
+            --border-color: #eeeeee;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #999;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            transition: 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--text-color);
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            nav a { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Дарья Мамаева</h1>
+        <p class="subtitle">медиаменеджер, журналист</p>
+        <a href="#portfolio" class="btn">Посмотреть работы</a>
+    </header>
+
+    <nav>
+        <a href="#resume">Резюме</a>
+        <a href="#text">Тексты</a>
+        <a href="#video">Видео/Reels</a>
+        <a href="#edit">Редактура</a>
+    </nav>
+
+    <section id="resume">
+        <h2>Резюме</h2>
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <p>Выпускница ВШЭ и ЛГУ им. А.С. Пушкина. Опыт работы в SMM, копирайтинге и креативном менеджменте.</p>
+            <br>
+            <a href="https://drive.google.com/file/d/1mBSMP8ZKCt3BIeTKv2RhxmzAuBVMblDY/view?usp=sharing" target="_blank" class="btn">Скачать полную версию PDF</a>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="portfolio">
+        <h2>Портфолио</h2>
+        <div class="grid">
+            <div class="card" id="text">
+                <h3>Текстовые работы</h3>
+                <p>Статьи, новости, копирайт для соцсетей и спецпроекты.</p>
+                <a href="https://docs.google.com/document/d/1HIuhCmvUrDAygnDWkWez7xAP-WGTYBt5WcLWy-Dm4DI/edit?usp=sharing" target="_blank" class="btn">Читать тексты</a>
+            </div>
+
+            <div class="card" id="video">
+                <h3>Видео & Reels</h3>
+                <p>Создание видеоконтента, монтаж и работа с форматом Reels.</p>
+                <a href="https://drive.google.com/drive/folders/1e56x9_7R0Upx1pAwo7p1O19YvajdtyVG?usp=sharing" target="_blank" class="btn">Смотреть видео</a>
+            </div>
+
+            <div class="card" id="edit">
+                <h3>Редакторские работы</h3>
+                <p>Примеры работы с текстами, проверка фактов и управление контентом.</p>
+                <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" target="_blank" class="btn">Смотреть правки</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Дарья Мамаева &copy; 2024 | Telegram: @d_s_m | Почта: ds_mamaeva@mail.ru</p>
+    </footer>
+
+</body>
+</html>
