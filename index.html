@@ -474,7 +474,9 @@
 
         <div class="case-grid">
             <div class="case-visual">
-                <div class="visual-placeholder">Видео/Reels</div>
+                <div class="visual-container-9-16">
+    <img src="meet.HEIC" alt="Обложка кейса Видеопродакшен" class="case-img-ratio">
+</div>
               
             </div>
 
@@ -709,6 +711,31 @@
 </section>
 
 <style>
+
+
+    /* Контейнер, задающий пропорцию 9:16 */
+.visual-container-9-16 {
+    width: 100%;
+    position: relative;
+    /* Уловка с padding-top для фиксации соотношения сторон */
+    /* (16 / 9) * 100 = 177.77% */
+    padding-top: 177.77%; 
+    overflow: hidden; /* Чтобы картинка не вылезала */
+    background-color: #f0f0f0; /* Фон, пока грузится фото */
+    border: 1px solid #eee;
+}
+
+/* Стили самой картинки внутри контейнера */
+.case-img-ratio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Самое важное свойство: фото заполняет блок, не искажаясь */
+    object-fit: cover; 
+    object-position: center; /* Центрируем изображение */
+}
     /* Стили для кнопок навигации внутри текстов */
     .text-nav-btn {
         background: transparent;
