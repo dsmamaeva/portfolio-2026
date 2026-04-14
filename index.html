@@ -353,23 +353,89 @@
         </div>
     </section>
 
-    <section id="portfolio" class="reveal">
-        <h2>Портфолио</h2>
-        <div class="portfolio-grid">
-            <a href="https://docs.google.com/document/d/1HIuhCmvUrDAygnDWkWez7xAP-WGTYBt5WcLWy-Dm4DI/edit?usp=sharing" class="polaroid" style="transform: rotate(-2deg);" target="_blank">
-                <div class="polaroid-img">ТЕКСТЫ</div>
-                <p class="hero-subtitle">Статьи и копирайт</p>
-            </a>
-            <a href="https://drive.google.com/drive/folders/1e56x9_7R0Upx1pAwo7p1O19YvajdtyVG?usp=sharing" class="polaroid" style="transform: rotate(2deg);" target="_blank">
-                <div class="polaroid-img">ВИДЕО</div>
-                <p class="hero-subtitle">Reels и монтаж</p>
-            </a>
-            <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" class="polaroid" style="transform: rotate(-1deg);" target="_blank">
-                <div class="polaroid-img">РЕДАКТУРА</div>
-                <p class="hero-subtitle">Правки и кейсы</p>
-            </a>
+<section id="portfolio" class="reveal">
+    <h2>Портфолио</h2>
+    <div class="portfolio-grid">
+        <div class="polaroid" style="transform: rotate(-2deg); cursor: pointer;" onclick="toggleTexts()">
+            <div class="polaroid-img">ТЕКСТЫ</div>
+            <p class="hero-subtitle">Журналистика и копирайт</p>
+            <span style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(НАЖМИТЕ, ЧТОБЫ ЧИТАТЬ)</span>
         </div>
-    </section>
+
+        <a href="https://drive.google.com/drive/folders/1e56x9_7R0Upx1pAwo7p1O19YvajdtyVG?usp=sharing" class="polaroid" style="transform: rotate(2deg);" target="_blank">
+            <div class="polaroid-img">ВИДЕО</div>
+            <p class="hero-subtitle">Reels и монтаж</p>
+        </a>
+
+        <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" class="polaroid" style="transform: rotate(-1deg);" target="_blank">
+            <div class="polaroid-img">РЕДАКТУРА</div>
+            <p class="hero-subtitle">Кейсы и правки</p>
+        </a>
+    </div>
+
+    <div id="text-samples-content" style="display: none; margin-top: 50px; background: white; padding: 50px; border: 1px solid #ddd; box-shadow: 0 10px 40px rgba(0,0,0,0.05); text-align: left;">
+        <div style="max-width: 800px; margin: 0 auto; font-family: 'Montserrat', sans-serif;">
+            
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--accent-red); border-bottom: 2px solid var(--accent-red); padding-bottom: 10px; margin-bottom: 30px;">Примеры моих текстовых работ</h3>
+
+            <article style="margin-bottom: 60px;">
+                <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; color: #888;">Аналитический материал для РБК</p>
+                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0;">Пятый кризис: Наталья Зубаревич – о характере нового спада экономики</h4>
+                <p style="font-style: italic; color: #555; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;">
+                    Стимул бюджетных вливаний в экономику затухает, и весь 2026 год пройдет в условиях «жесткой адаптации» к экономическому спаду. 
+                </p>
+                <div style="line-height: 1.8; color: #333; font-size: 0.95rem;">
+                    <p>Такое мнение высказала профессор географического факультета МГУ Наталья Зубаревич, выступая на деловом форуме «Business Day РБК» в Казани. «Надо расстаться с иллюзией, что большие бюджетные вливания могут быть бесконечным драйвером экономики», — подчеркнула она...</p>
+                    <blockquote style="border-left: 3px solid var(--accent-red); padding-left: 20px; margin: 25px 0; font-style: italic; color: var(--accent-red); font-weight: 500;">
+                        «Статистика говорит о том, что Россия вступила в пятый экономический кризис. Бизнес уже не удивляется, правда? Дело почти привычное, хотя все равно трудное».
+                    </blockquote>
+                    <p><strong>Отраслевой раскол: в плюсе – ВПК, золото и удобрения.</strong> Что происходит в разных секторах экономики? Почти вся добыча ушла в минус. В металлургической отрасли положительную динамику демонстрирует исключительно добыча золота. Лесопереработка находится в затяжном кризисе...</p>
+                    <p>Производство продуктов питания колеблется около нуля. Более того, упали объемы производства водки! Когда я вижу, что водка ушла в минус, я рыдаю и спрашиваю: «Что случилось с этой страной?» Водка в минусе – это аномалия.</p>
+                </div>
+            </article>
+
+            <hr style="margin: 40px 0; opacity: 0.1;">
+
+            <article style="margin-bottom: 60px;">
+                <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; color: #888;">Материал для сайта НИУ ВШЭ</p>
+                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0;">"Маркетинг – это не отдел, это философия": семинар с участием директора по маркетингу РБК</h4>
+                <div style="line-height: 1.8; color: #333; font-size: 0.95rem;">
+                    <p>В четверг, 3 октября, в Петербургском кампусе Высшей школы экономики прошел воркшоп с Андреем Сикорским, издателем журнала и директором по маркетингу РБК. Опытный практик рассказал о том, как сегодня работает маркетинг в медиакомпании.</p>
+                    <p>«РБК начинался с распечаток котировок, сводок с рынка. История про нейтральность, цифры, факты — это то, что во многом определило позиционирование бренда», — отметил Сикорский.</p>
+                </div>
+            </article>
+
+            <hr style="margin: 40px 0; opacity: 0.1;">
+
+            <article style="margin-bottom: 60px;">
+                <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; color: #888;">Журналистский репортаж</p>
+                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0;">Город разводных… людей</h4>
+                <div style="line-height: 1.8; color: #333; font-size: 0.95rem;">
+                    <p>Речь идет о курсирующих по центру фальшивых Екатеринах, Петрах, рыцарях в железных доспехах и зебрах. Схема простая: «аниматоры» выбирают «жертву» и начинают «развод» с доброжелательной фразы...</p>
+                    <p>— Царский танец, полонез, вот так вот положите ручку. Как догадались, чуточку платненько, — заискивающе скандирует Ангелина, — девчонкам на мороженку.</p>
+                    <p>В среднем, за 3 кадра просят от 900 до 1500 рублей. О цене предупреждают редко, обычно уже в процессе, или говорят абстрактно: «сколько не жалко коню на подкову».</p>
+                </div>
+            </article>
+
+            <div style="text-align: center;">
+                <button onclick="toggleTexts()" style="background: var(--text-dark); color: white; border: none; padding: 15px 30px; cursor: pointer; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">Свернуть тексты</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleTexts() {
+        var content = document.getElementById("text-samples-content");
+        if (content.style.display === "none") {
+            content.style.display = "block";
+            content.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            content.style.display = "none";
+            document.getElementById("portfolio").scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
 
     <footer id="contact" style="background: var(--text-dark); color: white; padding: 60px 20px; text-align: center;">
         <p>Telegram: @d_s_m | Дарья Мамаева © 2026</p>
