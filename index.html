@@ -34,7 +34,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(253,250,245,0.85), rgba(253,250,245,0.85));
         }
 
         .hero-title {
@@ -59,7 +58,7 @@
             white-space: nowrap;
             overflow: hidden;
             display: flex;
-            border-y: 1px solid var(--text-dark);
+            border-bottom: 1px solid var(--text-dark);
         }
 
         .marquee-content {
@@ -111,11 +110,11 @@
             text-transform: uppercase;
         }
 
-        /* Двухколоночный макет для опыта */
         .resume-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
+            margin-bottom: 50px;
         }
 
         .resume-column h3 {
@@ -173,6 +172,34 @@
         .experience-box li::before {
             content: "— ";
             color: var(--accent-red);
+        }
+
+        /* Кнопка Резюме */
+        .resume-action {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .btn-full-cv {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid var(--accent-red);
+        }
+
+        .btn-full-cv:hover {
+            background: transparent;
+            color: var(--accent-red);
+            transform: scale(1.05);
         }
 
         /* Портфолио */
@@ -235,7 +262,7 @@
     <nav>
         <a href="#about">Опыт</a>
         <a href="#portfolio">Портфолио</a>
-        <a href="https://drive.google.com/file/d/1mBSMP8ZKCt3BIeTKv2RhxmzAuBVMblDY/view?usp=sharing" target="_blank">PDF Резюме</a>
+        <a href="#contact">Контакты</a>
     </nav>
 
     <section id="about" class="reveal">
@@ -247,21 +274,19 @@
                 
                 <div class="experience-box">
                     <span class="exp-year">2024 — 2025</span>
-                    <span class="exp-company">Meet Market (Интернет-магазин)</span>
+                    <span class="exp-company">Meet Market</span>
                     <span class="exp-role">Креативный менеджер</span>
                     <ul>
-                        <li>Адаптация стратегии</li>
-                        <li>Создание фото и видеоконтента</li>
-                        <li>Написание текстов</li>
+                        <li>Адаптация стратегии, создание контента</li>
                     </ul>
                 </div>
 
                 <div class="experience-box">
                     <span class="exp-year">2024 — 2025</span>
-                    <span class="exp-company">Маркетинговое агентство "Manerate"</span>
+                    <span class="exp-company">Manerate</span>
                     <span class="exp-role">Копирайтер</span>
                     <ul>
-                        <li>Тексты для соцсетей ресторанов (Chelentano, Tetto и др.)</li>
+                        <li>Тексты для ресторанных проектов</li>
                     </ul>
                 </div>
 
@@ -269,29 +294,18 @@
                     <span class="exp-year">2024</span>
                     <span class="exp-company">Комсомольская правда</span>
                     <span class="exp-role">Администратор tg-канала</span>
-                    <ul>
-                        <li>Мониторинг новостей и генерация рубрик</li>
-                        <li>Поиск героев и рекламодателей</li>
-                    </ul>
                 </div>
-
+                
                 <div class="experience-box">
                     <span class="exp-year">2024</span>
-                    <span class="exp-company">Сетевое издание "Neva Today"</span>
+                    <span class="exp-company">Neva Today</span>
                     <span class="exp-role">Журналист-новостник</span>
-                    <ul>
-                        <li>Рерайт и написание материалов по сводкам</li>
-                    </ul>
                 </div>
 
                 <div class="experience-box">
                     <span class="exp-year">2023</span>
-                    <span class="exp-company">Администрация Пушкинского р-на СПб</span>
-                    <span class="exp-role">Сотрудник сектора информации</span>
-                    <ul>
-                        <li>Ведение госпабликов</li>
-                        <li>Создание инфокарточек и видео</li>
-                    </ul>
+                    <span class="exp-company">Администрация Пушкинского р-на</span>
+                    <span class="exp-role">Сектор информации</span>
                 </div>
             </div>
 
@@ -302,8 +316,7 @@
                     <span class="exp-year">2026</span>
                     <span class="exp-company">РБК</span>
                     <ul>
-                        <li>Коммуникация в рамках «Бизнес-дня в Казани»</li>
-                        <li>Исследование экосистемы холдинга</li>
+                        <li>Бизнес-день в Казани</li>
                     </ul>
                 </div>
 
@@ -311,7 +324,7 @@
                     <span class="exp-year">2025</span>
                     <span class="exp-company">Simple Wine</span>
                     <ul>
-                        <li>Разработка концепций и механик мероприятий</li>
+                        <li>Event-механики</li>
                     </ul>
                 </div>
 
@@ -319,20 +332,24 @@
                     <span class="exp-year">2023</span>
                     <span class="exp-company">Телеканал 78</span>
                     <ul>
-                        <li>Запись синхронов и расшифровка</li>
-                        <li>Съемка городских мероприятий</li>
+                        <li>Съемки и расшифровки</li>
                     </ul>
                 </div>
 
                 <div class="experience-box">
                     <span class="exp-year">2022</span>
-                    <span class="exp-company">Авторадио СПб 88.4 FM</span>
+                    <span class="exp-company">Авторадио СПб</span>
                     <ul>
-                        <li>Монтаж аудио-материалов</li>
-                        <li>Опрос горожан и подготовка интервью</li>
+                        <li>Монтаж и интервью</li>
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <div class="resume-action">
+            <a href="https://drive.google.com/file/d/1mBSMP8ZKCt3BIeTKv2RhxmzAuBVMblDY/view?usp=sharing" target="_blank" class="btn-full-cv">
+                Посмотреть полное резюме (PDF)
+            </a>
         </div>
     </section>
 
@@ -341,7 +358,7 @@
         <div class="portfolio-grid">
             <a href="https://docs.google.com/document/d/1HIuhCmvUrDAygnDWkWez7xAP-WGTYBt5WcLWy-Dm4DI/edit?usp=sharing" class="polaroid" style="transform: rotate(-2deg);" target="_blank">
                 <div class="polaroid-img">ТЕКСТЫ</div>
-                <p class="hero-subtitle">Журналистика и копирайт</p>
+                <p class="hero-subtitle">Статьи и копирайт</p>
             </a>
             <a href="https://drive.google.com/drive/folders/1e56x9_7R0Upx1pAwo7p1O19YvajdtyVG?usp=sharing" class="polaroid" style="transform: rotate(2deg);" target="_blank">
                 <div class="polaroid-img">ВИДЕО</div>
@@ -349,12 +366,12 @@
             </a>
             <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" class="polaroid" style="transform: rotate(-1deg);" target="_blank">
                 <div class="polaroid-img">РЕДАКТУРА</div>
-                <p class="hero-subtitle">Кейсы и правки</p>
+                <p class="hero-subtitle">Правки и кейсы</p>
             </a>
         </div>
     </section>
 
-    <footer style="background: var(--text-dark); color: white; padding: 60px 20px; text-align: center;">
+    <footer id="contact" style="background: var(--text-dark); color: white; padding: 60px 20px; text-align: center;">
         <p>Telegram: @d_s_m | Дарья Мамаева © 2026</p>
     </footer>
 
