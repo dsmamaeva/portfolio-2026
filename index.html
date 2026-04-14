@@ -541,14 +541,75 @@
         </div>
     </div>
 
-
-
-
-
-
-
         
-        
+
+<div class="tiktok-grid-quad">
+    
+    <div class="tiktok-row">
+        <div class="media-box video-box">
+            <div class="ratio-9-16">
+                <iframe 
+                    src="https://rutube.ru/play/embed/fed51542daf8d6fd2b3c358ed1887d1b/?p=1" 
+                    frameBorder="0" allowFullScreen class="rutube-player">
+                </iframe>
+                <div class="media-label">Видео 1</div>
+            </div>
+        </div>
+        <div class="media-box stats-box">
+            <div class="ratio-9-16">
+                <img src="IMG_3504.PNG" alt="Stats 1">
+                <div class="media-label stats-label">Аналитика 1</div>
+            </div>
+        </div>
+
+        <div class="media-box video-box">
+            <div class="ratio-9-16">
+                <iframe 
+                    src="https://rutube.ru/play/embed/73d801a8d7013639e992befd553d810c/?p=1" 
+                    frameBorder="0" allowFullScreen class="rutube-player">
+                </iframe>
+                <div class="media-label">Видео 2</div>
+            </div>
+        </div>
+        <div class="media-box stats-box">
+            <div class="ratio-9-16">
+                <img src="IMG_3506.PNG" alt="Stats 2">
+                <div class="media-label stats-label">Аналитика 2</div>
+            </div>
+        </div>
+    </div> <div class="tiktok-row">
+        <div class="media-box video-box">
+            <div class="ratio-9-16">
+                <iframe 
+                    src="https://rutube.ru/play/embed/5471921ca1f8e55ee7d385eab4cc0715/?p=1" 
+                    frameBorder="0" allowFullScreen class="rutube-player">
+                </iframe>
+                <div class="media-label">Видео 3</div>
+            </div>
+        </div>
+        <div class="media-box stats-box">
+            <div class="ratio-9-16">
+                <img src="IMG_3508.png" alt="Stats 3">
+                <div class="media-label stats-label">Аналитика 3</div>
+            </div>
+        </div>
+
+        <div class="media-box video-box">
+            <div class="ratio-9-16">
+                <iframe 
+                    src="https://rutube.ru/play/embed/ID_4/?p=1" 
+                    frameBorder="0" allowFullScreen class="rutube-player">
+                </iframe>
+                <div class="media-label">Видео 4</div>
+            </div>
+        </div>
+        <div class="media-box stats-box">
+            <div class="ratio-9-16">
+                <img src="IMG_3510.png" alt="Stats 4">
+                <div class="media-label stats-label">Аналитика 4</div>
+            </div>
+        </div>
+    </div> </div> 
 
         
 <body>
@@ -717,60 +778,6 @@
 </section>
 
 <style>
-
-    /* Стили для сетки кейса TikTok */
-.tiktok-grid-quad {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 30px;
-    width: 100%;
-}
-
-.tiktok-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.ratio-9-16 {
-    position: relative;
-    padding-top: 177.77%;
-    background: #f0f0f0;
-    overflow: hidden;
-    border: 1px solid #eee;
-}
-
-.rutube-player, .ratio-9-16 img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: none;
-}
-
-.media-label {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    padding: 3px 8px;
-    font-size: 10px;
-    text-transform: uppercase;
-}
-
-.stats-label { background: var(--accent-red); }
-
-/* Адаптивность для мобильных */
-@media (max-width: 900px) {
-    .tiktok-row { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-    .tiktok-row { grid-template-columns: 1fr; }
-}
 
     .rutube-player {
     position: absolute;
@@ -1469,41 +1476,46 @@
             document.getElementById("portfolio").scrollIntoView({ behavior: 'smooth' });
         }
     }
-<script>
-    // Функция для анимации появления элементов при скролле
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) {
-                reveals[i].classList.add("active");
+</script>
+
+    <footer id="contact" style="background: var(--text-dark); color: white; padding: 60px 20px; text-align: center;">
+        <p>Telegram: @d_s_m | Дарья Мамаева © 2026</p>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
-    }
-    window.addEventListener("scroll", reveal);
-    reveal();
+        window.addEventListener("scroll", reveal);
+        reveal();
 
-    // Функции для кейсов (Видеопродакшен/TikTok)
-    function openCase(caseId) {
-        document.getElementById('case-overlay').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
 
-    function closeCase() {
-        document.getElementById('case-overlay').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+        function openCase(caseId) {
+    document.getElementById('case-overlay').style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Запрещаем прокрутку сайта под оверлеем
+}
 
-    // Закрытие оверлея при клике вне контента
-    window.onclick = function(event) {
-        let overlay = document.getElementById('case-overlay');
-        let articleOverlay = document.getElementById('article-overlay'); // Если используете для статей
-        if (event.target == overlay) {
-            closeCase();
-        }
+function closeCase() {
+    document.getElementById('case-overlay').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Возвращаем прокрутку
+}
+
+// Закрытие при клике вне контента
+window.onclick = function(event) {
+    let overlay = document.getElementById('case-overlay');
+    if (event.target == overlay) {
+        closeCase();
     }
-</script>
+}
+   
+    </script>
 
 
 
