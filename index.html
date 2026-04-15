@@ -1424,15 +1424,16 @@
 
 .magazine-header {
     text-align: left;
-    margin-bottom: 30px; /* Было 80px — уменьшили основной отступ до контента */
+    margin-bottom: 20px; /* Оставляем минимальный зазор до контента */
+    padding: 0;         /* Убираем внутренние отступы */
 }
 
 .mag-title {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-size: 3rem;    /* Немного уменьшили размер, чтобы выглядело аккуратнее */
     color: var(--accent-red);
-    line-height: 0.85; /* Сжали межстрочный интервал для компактности */
-    margin: 10px 0; /* Было 20px — уменьшили отступы сверху и снизу текста */
+    line-height: 1;
+    margin: 0;          /* ПОЛНОСТЬЮ убираем все отступы вокруг текста */
     text-transform: uppercase;
 }
 
@@ -1440,9 +1441,13 @@
     width: 100%;
     height: 1px;
     background: var(--accent-red);
-    margin-top: 10px; /* Было 20px — подтянули линию ближе к буквам */
+    margin: 5px 0 0 0; /* Линия теперь почти вплотную к буквам */
 }
 
+/* Подтягиваем первый проект еще ближе к заголовку */
+.mag-project:first-of-type {
+    margin-top: 10px;
+}
 .mag-project {
     display: flex;
     flex-direction: column;
