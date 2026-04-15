@@ -630,7 +630,49 @@
 </section>
 
 <style>
+/* Растягиваем блок на два поля */
+.media-box-wide {
+    flex: 2 !important; /* Занимает в 2 раза больше места, чем соседние блоки */
+    min-width: 300px; 
+    display: flex;
+}
 
+/* Оформление карточки с текстом */
+.case-description-card {
+    background: #fff;
+    border: 1px solid rgba(139, 26, 26, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desc-title {
+    font-family: 'Playfair Display', serif;
+    color: #8b1a1a;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.desc-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Адаптивность: на мобильных устройствах блок снова станет узким и встанет в колонку */
+@media (max-width: 768px) {
+    .tiktok-row {
+        flex-direction: column;
+    }
+    .media-box-wide {
+        flex: 1 !important;
+        width: 100%;
+    }
+}
 
     /* Стили для текстового блока в сетке */
 .full-text-box {
@@ -1584,15 +1626,13 @@
         </div>
     </div>
 
-    <div class="media-box full-text-box">
-        <div class="case-description-content">
-            <h3 class="description-title">Итоги и инсайты</h3>
-            <p class="description-text">
-                Здесь вы можете подробно описать стратегию развития, какие гипотезы сработали, 
-                а также ваши личные выводы по проекту. Это окно занимает место двух стандартных блоков, 
-                чтобы текст читался легко и не был зажат.
-            </p>
-            <div class="description-footer">Дарья Мамаева © 2026</div>
+  <div class="media-box media-box-wide">
+        <div class="case-description-card">
+            <h3 class="desc-title">Итоги проекта</h3>
+            <p class="desc-text">
+                Здесь располагается описание кейса. Благодаря растяжению блока, текст теперь 
+                занимает место двух ячеек (видео и аналитики), что делает его более читабельным 
+                и выделяет на фоне медиа-контента.
         </div>
     </div>
 
