@@ -630,392 +630,12 @@
 </section>
 
 <style>
-
-    .tiktok-grid-quad {
-        max-width: 1200px;
-        margin: 0 auto;
-        font-family: sans-serif;
-        padding: 20px;
-        background-color: #f8f8f8;
+    /* --- 1. ОБЩИЕ СТИЛИ ЛЕНДИНГА (Сохранено) --- */
+    :root {
+        --accent-red: #8b1a1a;
+        --text-dark: #333;
     }
 
-    /* Ряд из 4-х колонок */
-    .tiktok-row {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap; /* Для адаптивности на мобильных */
-        margin-bottom: 20px;
-    }
-
-    /* Сетка: 4 элемента в ряд на десктопе */
-    .media-box {
-        flex: 1;
-        min-width: 200px; 
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        position: relative;
-    }
-
-    /* Контейнер для соблюдения пропорций 9:16 */
-    .ratio-9-16 {
-        position: relative;
-        width: 100%;
-        padding-top: 177.78%; /* Соотношение 16 / 9 * 100 */
-        background: #000;
-    }
-
-    /* Стили для видео и картинок внутри контейнера */
-    .ratio-9-16 iframe, 
-    .ratio-9-16 img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        object-fit: cover; /* Чтобы картинки не растягивались */
-    }
-
-    /* Подписи к видео/статистике */
-    .media-label {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.6);
-        color: #fff;
-        padding: 8px;
-        font-size: 14px;
-        text-align: center;
-        z-index: 2;
-    }
-
-    .stats-label {
-        background: rgba(255, 62, 100, 0.8); /* Выделение для аналитики */
-    }
-
-    /* Блок с текстом внизу */
-    .full-width-text {
-        flex: 1 1 100% !important;
-        background: #fff;
-        padding: 25px;
-    }
-
-    .desc-title {
-        margin-top: 0;
-        color: #333;
-        border-bottom: 2px solid #ff3e64;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-
-    .desc-text p {
-        line-height: 1.6;
-        color: #555;
-    }
-
-    /* Адаптация под телефоны */
-    @media (max-width: 768px) {
-        .media-box {
-            min-width: 45%; /* По 2 элемента в ряд */
-        }
-    }
-    .full-width-text {
-    flex: 1 1 100% !important;
-    width: 100%;
-}
-
-    /* Растягивание текстового блока на всю ширину ряда */
-.full-width-text {
-    flex: 1 1 100% !important;
-    width: 100%;
-    display: block;
-}
-
-/* Стили самой карточки для красоты */
-.wide-card {
-    background: #fff;
-    border: 1px solid rgba(139, 26, 26, 0.1);
-    border-radius: 12px;
-    padding: 35px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-}
-
-.desc-footer {
-    margin-top: 20px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #999;
-}
-
-    /* Растягиваем текстовый блок на всю ширину (4 колонки) */
-.full-width-text {
-    flex: 1 1 100% !important;
-    width: 100%;
-}
-
-.wide-card {
-    background: #fff;
-    border: 1px solid rgba(139, 26, 26, 0.15);
-    border-radius: 12px;
-    padding: 40px; /* Больше отступов для широкого формата */
-    width: 100%;
-    min-height: 200px;
-}
-
-.desc-text p {
-    margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* На мобильных устройствах уменьшаем падинги */
-@media (max-width: 768px) {
-    .wide-card {
-        padding: 20px;
-    }
-}
-
-    /* Пропорция 18:16 для широкого текстового блока */
-.media-box-wide {
-    flex: 2 !important; /* Занимает место двух блоков */
-}
-
-.ratio-18-16 {
-    position: relative;
-    width: 100%;
-    /* Математический расчет: (16 / 18) * 100 = 88.88% */
-    padding-top: 88.88%; 
-}
-
-.case-description-card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #fff;
-    border: 1px solid rgba(139, 26, 26, 0.15);
-    border-radius: 12px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow-y: auto; /* На случай, если текста будет слишком много */
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .ratio-18-16 {
-        padding-top: 120%; /* Сделаем его чуть выше на телефонах для удобства чтения */
-    }
-}
-/* Растягиваем блок на два поля */
-.media-box-wide {
-    flex: 2 !important; /* Занимает в 2 раза больше места, чем соседние блоки */
-    min-width: 300px; 
-    display: flex;
-}
-
-/* Оформление карточки с текстом */
-.case-description-card {
-    background: #fff;
-    border: 1px solid rgba(139, 26, 26, 0.15);
-    border-radius: 12px;
-    padding: 25px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.desc-title {
-    font-family: 'Playfair Display', serif;
-    color: #8b1a1a;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.desc-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Адаптивность: на мобильных устройствах блок снова станет узким и встанет в колонку */
-@media (max-width: 768px) {
-    .tiktok-row {
-        flex-direction: column;
-    }
-    .media-box-wide {
-        flex: 1 !important;
-        width: 100%;
-    }
-}
-
-    /* Стили для текстового блока в сетке */
-.full-text-box {
-    flex: 2; /* Занимает в 2 раза больше места, чем обычный блок */
-    background: #fff;
-    border: 1px solid rgba(139, 26, 26, 0.1); /* Тонкая рамка в цвете акцента */
-    border-radius: 12px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100%; /* Растягивается по высоте соседних видео */
-}
-
-.description-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--accent-red);
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.description-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-dark);
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 20px;
-}
-
-.description-footer {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #999;
-    margin-top: auto;
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .full-text-box {
-        flex: 1 1 100%; /* На мобильных текст займет всю ширину */
-        margin-top: 15px;
-    }
-}
-
-    .rutube-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-/* Контейнер для четырехколоночной сетки */
-.tiktok-grid-quad {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 30px;
-    max-width: 1200px; /* Ограничиваем ширину, чтобы блоки не были слишком огромными */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Строка из 4-х элементов */
-.tiktok-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
-    gap: 15px;
-    background: #fff;
-    padding: 15px;
-    border-bottom: 1px solid #eee; /* Разделитель между рядами */
-}
-
-/* Пропорции 9:16 (сохраняем) */
-.ratio-9-16 {
-    position: relative;
-    padding-top: 177.77%; 
-    background: #f8f8f8;
-    overflow: hidden;
-    border: 1px solid #eee;
-    transition: transform 0.3s ease;
-}
-
-.ratio-9-16:hover {
-    transform: translateY(-5px); /* Легкий эффект при наведении */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-.ratio-9-16 video, 
-.ratio-9-16 img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Метки */
-.media-label {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 3px 8px;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.stats-label {
-    background: var(--accent-red);
-}
-
-/* --- АДАПТИВНОСТЬ (Критически важно!) --- */
-
-/* На планшетах делаем 2 ряда по 2 элемента */
-@media (max-width: 1024px) {
-    .tiktok-row {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-
-/* На телефонах — 1 колонка (всё в столбик) */
-@media (max-width: 600px) {
-    .tiktok-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-    /* Контейнер, задающий пропорцию 9:16 */
-.visual-container-9-16 {
-    width: 100%;
-    position: relative;
-    /* Уловка с padding-top для фиксации соотношения сторон */
-    /* (16 / 9) * 100 = 177.77% */
-    padding-top: 177.77%; 
-    overflow: hidden; /* Чтобы картинка не вылезала */
-    background-color: #f0f0f0; /* Фон, пока грузится фото */
-    border: 1px solid #eee;
-}
-
-/* Стили самой картинки внутри контейнера */
-.case-img-ratio {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Самое важное свойство: фото заполняет блок, не искажаясь */
-    object-fit: cover; 
-    object-position: center; /* Центрируем изображение */
-}
-    /* Стили для кнопок навигации внутри текстов */
     .text-nav-btn {
         background: transparent;
         border: 1px solid #ddd;
@@ -1037,6 +657,106 @@
     .text-nav-btn.active {
         background: var(--accent-red);
         color: white;
+    }
+
+    /* --- 2. СТИЛИ TIKTOK-СЕТКИ (Исправлено) --- */
+    .tiktok-grid-quad {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #f8f8f8; /* Светлый фон сетки */
+        border-radius: 15px;
+    }
+
+    .tiktok-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .media-box {
+        flex: 1 1 calc(25% - 15px); /* 4 колонки */
+        min-width: 200px;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    /* РАСТЯГИВАЕМ ТЕКСТОВЫЙ БЛОК НА ВСЮ ШИРИНУ */
+    .full-width-text {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .ratio-9-16 {
+        position: relative;
+        width: 100%;
+        padding-top: 177.78%;
+        background: #000;
+    }
+
+    .ratio-9-16 iframe, .ratio-9-16 img, .rutube-player {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        border: none;
+        object-fit: cover;
+    }
+
+    /* Оформление карточки стратегии */
+    .wide-card {
+        background: #fff;
+        border: 1px solid rgba(139, 26, 26, 0.15);
+        border-radius: 12px;
+        padding: 40px;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .desc-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: var(--accent-red);
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--accent-red);
+        display: inline-block;
+    }
+
+    .desc-text p {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+    }
+
+    .media-label {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 8px;
+        font-size: 12px;
+        text-align: center;
+        z-index: 2;
+    }
+
+    .stats-label { background: var(--accent-red); }
+
+    /* --- 3. АДАПТИВНОСТЬ --- */
+    @media (max-width: 1024px) {
+        .media-box { flex: 1 1 calc(50% - 15px); } /* 2 в ряд */
+    }
+
+    @media (max-width: 600px) {
+        .media-box { flex: 1 1 100%; } /* 1 в ряд */
+        .wide-card { padding: 20px; }
     }
 </style>
 
