@@ -631,6 +631,52 @@
 
 <style>
 
+
+    /* Стили для текстового блока в сетке */
+.full-text-box {
+    flex: 2; /* Занимает в 2 раза больше места, чем обычный блок */
+    background: #fff;
+    border: 1px solid rgba(139, 26, 26, 0.1); /* Тонкая рамка в цвете акцента */
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%; /* Растягивается по высоте соседних видео */
+}
+
+.description-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--accent-red);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.description-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+.description-footer {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-top: auto;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .full-text-box {
+        flex: 1 1 100%; /* На мобильных текст займет всю ширину */
+        margin-top: 15px;
+    }
+}
+
     .rutube-player {
     position: absolute;
     top: 0;
@@ -1520,7 +1566,39 @@
                 <div class="media-label stats-label">Аналитика 10</div>
             </div>
         </div>
-    </div> </div> 
+    </div> 
+
+<div class="tiktok-row" style="margin-top: 20px;">
+    
+    <div class="media-box video-box">
+        <div class="ratio-9-16">
+            <iframe src="ССЫЛКА_НА_ВИДЕО_11" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
+            <div class="media-label">Видео 11</div>
+        </div>
+    </div>
+
+    <div class="media-box stats-box">
+        <div class="ratio-9-16">
+            <img src="IMG_3514.PNG" alt="Stats 11">
+            <div class="media-label stats-label">Аналитика 11</div>
+        </div>
+    </div>
+
+    <div class="media-box full-text-box">
+        <div class="case-description-content">
+            <h3 class="description-title">Итоги и инсайты</h3>
+            <p class="description-text">
+                Здесь вы можете подробно описать стратегию развития, какие гипотезы сработали, 
+                а также ваши личные выводы по проекту. Это окно занимает место двух стандартных блоков, 
+                чтобы текст читался легко и не был зажат.
+            </p>
+            <div class="description-footer">Дарья Мамаева © 2026</div>
+        </div>
+    </div>
+
+</div>
+
+</div> 
         
     <script>
         function reveal() {
