@@ -634,10 +634,10 @@
 /* Основная сетка шапки */
 .case-hero-section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
-    gap: 15px;
-    margin-bottom: 30px;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 20px;
+    margin-bottom: 40px;
+    align-items: start;
 }
     /* Контейнер для текста внутри пропорции 9:16 */
 .results-content-overlay {
@@ -693,12 +693,9 @@
 
 /* Растягиваем стратегию на все 3 колонки снизу */
 .full-width-strategy {
-    grid-column: span 3;
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    border-left: 4px solid var(--accent-red);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    grid-column: 1 / 4; /* Растянуться от 1-й до 4-й линии (то есть занять все 3 колонки) */
+    width: 100%;
+    box-sizing: border-box; /* Чтобы padding не раздувал ширину */
 }
 
 /* Блок с двумя фото */
@@ -752,7 +749,6 @@
 
 /* Карточка стратегии под результатами */
 .hero-strategy-card {
-    grid-column: 2 / 3; /* Ставим под результаты (во вторую колонку) */
     background: #fff;
     padding: 30px;
     border-radius: 12px;
@@ -775,10 +771,10 @@
 /* Адаптивность: на мобильных 1 в ряд */
 @media (max-width: 768px) {
     .case-hero-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* На телефоне всё в одну колонку */
     }
-    .full-width-strategy {
-        grid-column: span 1;
+.full-width-strategy {
+        grid-column: 1; /* На телефоне занимает одну колонку */
     }
     .results-container {
         padding-top: 100%; /* На мобильных делаем результаты квадратными, чтобы не тянуть экран */
@@ -1493,10 +1489,6 @@
         <div class="case-header">
         <h2 class="case-main-title">Кейс: развитие TikTok Meet Market</h2>
         </div>
-
-
-
-        
         <div class="case-hero-section">
             <div class="visual-box">
                 <div class="ratio-9-16">
@@ -1508,7 +1500,6 @@
                 <img src="meet2.jpeg" alt="Обложка 2">
                 </div>
             </div>
-            
             <div class="visual-box results-visual-box">
                 <div class="ratio-9-16 results-container">
                     <div class="results-content-overlay">
@@ -1534,8 +1525,6 @@
                     </div>
                 </div>
             </div>
-        
-            
             <div class="hero-strategy-card full-width-strategy">
             <h3 class="strategy-title">Стратегия и выводы</h3>
                 <div class="strategy-content">
