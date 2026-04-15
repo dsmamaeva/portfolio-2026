@@ -631,6 +631,30 @@
 
 <style>
 
+    /* Растягивание текстового блока на всю ширину ряда */
+.full-width-text {
+    flex: 1 1 100% !important;
+    width: 100%;
+    display: block;
+}
+
+/* Стили самой карточки для красоты */
+.wide-card {
+    background: #fff;
+    border: 1px solid rgba(139, 26, 26, 0.1);
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.desc-footer {
+    margin-top: 20px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+}
+
     /* Растягиваем текстовый блок на всю ширину (4 колонки) */
 .full-width-text {
     flex: 1 1 100% !important;
@@ -1712,21 +1736,19 @@
 
 </div>
 
-
 <div class="tiktok-row" style="margin-top: 20px;">
-        <div class="media-box full-width-text">
-            <div class="case-description-card wide-card">
-                <h3 class="desc-title">Стратегия</h3>
-                <div class="desc-text">
-                    <p>Сначала мы экспериментировали с контентом и формировали гипотезы: пробовали снимать тренды, юмор (видео 1, 2), в итоге по количеству охватов на роликах вывели, что лучше всего заходит «полезный» контент.</p>
-                    <p>Кроме того, использовали в продвижении ситуативный маркетинг (видео 6).</p>
-                    <p>В моменте аудитории хорошо «зашли» видео с разными шнуровками: их хорошо сохраняли и репостили. Венец этой рубрики — видео 11.</p>
-                </div>
-               
+    <div class="media-box full-width-text">
+        <div class="case-description-card wide-card">
+            <h3 class="desc-title">Стратегия</h3>
+            <div class="desc-text">
+                <p>Сначала мы экспериментировали с контентом и формировали гипотезы: пробовали снимать тренды, юмор (видео 1, 2), в итоге по количеству охватов на роликах вывели, что лучше всего заходит «полезный» контент.</p>
+                <p>Кроме того, использовали в продвижении ситуативный маркетинг (видео 6).</p>
+                <p>В моменте аудитории хорошо «зашли» видео с разными шнуровками: их хорошо сохраняли и репостили. Венец этой рубрики — видео 11.</p>
             </div>
+            <div class="desc-footer">Media Management & Production</div>
         </div>
     </div>
-
+</div>
     
     </div>
     
