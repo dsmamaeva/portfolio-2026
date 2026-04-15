@@ -634,9 +634,14 @@
     <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите кейс:</h3>
     
     <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto;">
-        <button class="text-nav-btn" onclick="openCase('tiktok-meet')">Развитие TikTok Meet Market</button>
-        <button class="text-nav-btn" onclick="openCase('short-film')">Полный цикл создания короткого метра</button>
-        <button class="text-nav-btn" onclick="openCase('personal-blog')">Личный блог</button>
+        <button class="text-nav-btn" onclick="showVideoCase('tiktok-meet')">Развитие TikTok Meet Market</button>
+        <button class="text-nav-btn" onclick="showVideoCase('short-film')">Полный цикл создания короткого метра</button>
+        <button class="text-nav-btn" onclick="showVideoCase('personal-blog')">Личный блог</button>
+    </div>
+
+    <div id="video-case-display" style="margin-top: 60px; display: none; border-top: 1px solid #eee; padding-top: 40px;">
+        <div id="video-case-content" style="width: 100%; margin: 0 auto;">
+             </div>
     </div>
 </div>
 
@@ -1736,49 +1741,10 @@ perfume: `
             display.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
     }
-</script>
 
-<script>
-
-    function toggleVideoFolder() {
-    const videoFolder = document.getElementById('video-folder');
-    const textFolder = document.getElementById('text-folder');
-    const status = document.getElementById('video-folder-status');
-
-    // Скрываем тексты, если они открыты
-    if (textFolder) textFolder.style.display = 'none';
-
-    // Переключаем видео
-    if (videoFolder.style.display === 'none' || videoFolder.style.display === '') {
-        videoFolder.style.display = 'block';
-        status.innerText = '(ЗАКРЫТЬ СПИСОК)';
-        // Плавный скролл к кнопкам
-        setTimeout(() => {
-            videoFolder.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-    } else {
-        videoFolder.style.display = 'none';
-        status.innerText = '(ОТКРЫТЬ СПИСОК РАБОТ)';
-    }
-}
-    function toggleTexts() {
-        var content = document.getElementById("text-samples-content");
-        if (content.style.display === "none") {
-            content.style.display = "block";
-            content.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            content.style.display = "none";
-            document.getElementById("portfolio").scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-</script>
-
-    <footer id="contact" style="background: var(--text-dark); color: white; padding: 60px 20px; text-align: center;">
-        <p>Telegram: @d_s_m | Дарья Мамаева © 2026</p>
-    </footer>
-
-
-<div id="case-overlay" class="overlay">
+const videoCases = {
+    'tiktok-meet': `
+    <div id="case-overlay" class="overlay">
     <div class="overlay-content">
     <span class="close-overlay" onclick="closeCase()">&times;</span>
         <div class="case-header">
@@ -2010,6 +1976,79 @@ perfume: `
   
 </div>
         </div>
+
+        `,
+
+    'short-film': `
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Полный цикл создания короткого метра</h2>
+        <p>Описание процесса производства, сценария и пре-продакшена...</p>
+        `,
+    'personal-blog': `
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Личный блог</h2>
+        <p>Стратегия продвижения личного бренда через вертикальный контент...</p>
+    `
+};
+
+
+    
+</script>
+
+<script>
+
+    function showVideoCase(caseId) {
+    const display = document.getElementById('video-case-display');
+    const content = document.getElementById('video-case-content');
+    
+    if (videoCases[caseId]) {
+        content.innerHTML = videoCases[caseId];
+        display.style.display = 'block';
+        
+        // Плавный скролл к началу кейса
+        setTimeout(() => {
+            display.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+}
+
+    function toggleVideoFolder() {
+    const videoFolder = document.getElementById('video-folder');
+    const textFolder = document.getElementById('text-folder');
+    const status = document.getElementById('video-folder-status');
+
+    // Скрываем тексты, если они открыты
+    if (textFolder) textFolder.style.display = 'none';
+
+    // Переключаем видео
+    if (videoFolder.style.display === 'none' || videoFolder.style.display === '') {
+        videoFolder.style.display = 'block';
+        status.innerText = '(ЗАКРЫТЬ СПИСОК)';
+        // Плавный скролл к кнопкам
+        setTimeout(() => {
+            videoFolder.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    } else {
+        videoFolder.style.display = 'none';
+        status.innerText = '(ОТКРЫТЬ СПИСОК РАБОТ)';
+    }
+}
+    function toggleTexts() {
+        var content = document.getElementById("text-samples-content");
+        if (content.style.display === "none") {
+            content.style.display = "block";
+            content.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            content.style.display = "none";
+            document.getElementById("portfolio").scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+    <footer id="contact" style="background: var(--text-dark); color: white; padding: 60px 20px; text-align: center;">
+        <p>Telegram: @d_s_m | Дарья Мамаева © 2026</p>
+    </footer>
+
+
+
 
         
     <script>
