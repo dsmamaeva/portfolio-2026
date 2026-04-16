@@ -602,11 +602,26 @@
 
 
 
-        <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" class="polaroid" style="transform: rotate(-1deg);" target="_blank">
-            <div class="polaroid-img">РЕДАКТУРА</div>
-            <p class="hero-subtitle">Кейсы и правки</p>
-        </a>
+      <div class="polaroid-menu-card" onclick="showFolder('design-folder')">
+    <div class="polaroid-inner">
+        <div class="polaroid-image-mock">
+            <img src="figma_icon.png" alt="Figma Design" style="width: 40px; opacity: 0.5;">
+        </div>
+        <div class="polaroid-label">
+            <h3 class="handwritten">Дизайн</h3>
+            <p class="mono-sub">проекты, сделанные в figma</p>
+        </div>
     </div>
+</div>
+
+<div id="design-folder" class="folder-content" style="display: none;">
+    <h3 class="mag-title" style="font-size: 2rem; text-align: center; margin-bottom: 30px;">Design Cases</h3>
+    <div class="design-menu-grid">
+        <button class="text-nav-btn" onclick="showDesignCase('b2b-site')">Сайт для B2B сегмента</button>
+        <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Разработка приложения для аудио-экскурсий</button>
+        <button class="text-nav-btn" onclick="showDesignCase('tg-cards')">Карточки для телеграм-канала</button>
+    </div>
+</div>
 
     <div id="text-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
         <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите категорию материала:</h3>
@@ -650,6 +665,75 @@
 </section>
 
 <style>
+
+
+    /* --- POLAROID MENU CARD --- */
+.polaroid-menu-card {
+    width: 200px;
+    background: #fff;
+    padding: 12px 12px 35px 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: rotate(-3deg); /* Легкий наклон */
+    display: inline-block;
+    margin: 20px;
+}
+
+.polaroid-menu-card:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 15px 35px rgba(139, 26, 26, 0.15);
+}
+
+.polaroid-inner {
+    border: 1px solid #eee;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.polaroid-image-mock {
+    background: #f9f9f9;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.polaroid-label {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.handwritten {
+    font-family: 'Playfair Display', serif; /* Или любой рукописный шрифт */
+    color: var(--accent-red);
+    margin: 0;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.mono-sub {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.65rem;
+    color: #888;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* Сетка меню дизайна */
+.design-menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+
+
+    
 
 /* Основная сетка шапки */
 /* Также убедитесь, что родительский контейнер имеет эти свойства */
@@ -2802,6 +2886,42 @@ const videoCases = {
 };
 
 
+
+
+
+
+    // Объект с контентом для дизайна
+const designCases = {
+    'b2b-site': `<div class="magazine-layout"><h3>Сайт для B2B</h3><p>Контент кейса...</p></div>`,
+    'audio-app': `<div class="magazine-layout"><h3>Приложение экскурсий</h3><p>Контент кейса...</p></div>`,
+    'tg-cards': `<div class="magazine-layout"><h3>TG Карточки</h3><p>Контент кейса...</p></div>`
+};
+
+// Функция показа кейса дизайна
+function showDesignCase(caseId) {
+    const overlay = document.getElementById('case-overlay');
+    const content = document.getElementById('case-content');
+    
+    if (designCases[caseId]) {
+        content.innerHTML = designCases[caseId];
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Если у тебя еще нет общей функции переключения папок (folders)
+function showFolder(folderId) {
+    // Скрываем все папки
+    document.getElementById('text-folder').style.display = 'none';
+    document.getElementById('video-folder').style.display = 'none';
+    document.getElementById('design-folder').style.display = 'none';
+    
+    // Показываем нужную
+    document.getElementById(folderId).style.display = 'block';
+    
+    // Скролл к папке
+    document.getElementById(folderId).scrollIntoView({ behavior: 'smooth' });
+}
     
 </script>
 
