@@ -1664,6 +1664,75 @@
     .blog-grid { flex-direction: column; }
     .blog-hero-image { max-width: 100%; box-shadow: 10px 10px 0px var(--accent-red); }
 }
+
+    /* Контейнер для всех 6 рядов */
+.blog-cases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Расстояние между кейсами */
+}
+
+.blog-grid-row {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* 1/4 видео (вертикальное 9:16) */
+.rutube-reels-container {
+    position: relative;
+    padding-bottom: 177%; /* Пропорция 9:16 для мобильного видео */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 8px;
+}
+
+.rutube-reels-container iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+/* 1/4 скриншот статистики */
+.stats-screenshot {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #eee;
+    cursor: pointer;
+    background: #f9f9f9;
+}
+
+.stats-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Чтобы скриншот был виден целиком */
+}
+
+.zoom-hint {
+    position: absolute;
+    bottom: 0; width: 100%;
+    background: rgba(139, 26, 26, 0.7);
+    color: white;
+    font-size: 0.6rem;
+    text-align: center;
+    padding: 5px 0;
+    font-family: monospace;
+}
+
+/* Пропорции Flex */
+.video-slot { flex: 1; min-width: 180px; }
+.stats-slot { flex: 1; min-width: 180px; }
+.info-slot  { flex: 2; }
+
+@media (max-width: 850px) {
+    .blog-grid-row {
+        flex-direction: column;
+    }
+    .rutube-reels-container {
+        padding-bottom: 150%; /* Чуть меньше на мобилках */
+    }
+}
 </style>
 
 <script>
@@ -2924,59 +2993,49 @@ const videoCases = {
     <div class="blog-case-wrapper">
         <header class="blog-hero">
             <div class="blog-hero-image">
-                <img src="blog_main_screen.jpg" alt="Мой блог">
+                <img src="main_blog_screen.jpg" alt="Блог">
             </div>
             <div class="blog-hero-text">
-                <span class="mono-label">PERSONAL BRAND</span>
+                <span class="mono-label">STRATEGY & GROWTH</span>
                 <h2 class="blog-title serif">The Science of<br>Self-Development</h2>
                 <p class="blog-intro">
-                    Мой блог — это площадка для тех, кто ценит системный подход. Здесь я упаковываю научные концепции саморазвития в эстетичный лайфстайл-контент. Я выстраиваю стратегию на стыке «Old Money» эстетики и высокой эффективности, создавая комьюнити осознанных и амбициозных людей.
+                    Здесь я рассказываю о своем блоге: это не просто контент, а экосистема, построенная на методологии системного подхода к жизни. Мы объединяем науку и эстетику.
                 </p>
             </div>
         </header>
 
-        <div class="blog-grid">
-            <div class="grid-item video-slot">
-                <span class="grid-tag mono-text">Featured Reels</span>
-                <div class="reels-mockup">
-                    <video autoplay muted loop playsinline>
-                        <source src="reels_preview.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
+        <div class="blog-cases-grid">
+            ${[1, 2, 3, 4, 5, 6].map(i => `
+                <div class="blog-grid-row">
+                    <div class="grid-item video-slot">
+                        <span class="grid-tag mono-text">Reels #${i}</span>
+                        <div class="rutube-reels-container">
+                            <iframe 
+                                src="https://rutube.ru/play/embed/ID_ВИДЕО_${i}" 
+                                frameBorder="0" 
+                                allow="clipboard-write; autoplay" 
+                                webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+                            </iframe>
+                        </div>
+                    </div>
 
-            <div class="grid-item stats-slot">
-                <span class="grid-tag mono-text">Insights</span>
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <p class="stat-value serif">100k+</p>
-                        <p class="stat-label mono-text">охват</p>
+                    <div class="grid-item stats-slot">
+                        <span class="grid-tag mono-text">Statistics</span>
+                        <div class="stats-screenshot" onclick="zoomImage('stats_${i}.jpg')">
+                            <img src="stats_${i}.jpg" alt="Статистика кейса ${i}">
+                            <div class="zoom-hint">Увеличить</div>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <p class="stat-value serif">15%</p>
-                        <p class="stat-label mono-text">ER (вовлеченность)</p>
-                    </div>
-                    <div class="stat-card">
-                        <p class="stat-value serif">8k+</p>
-                        <p class="stat-label mono-text">сохранений</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="grid-item info-slot">
-                <span class="grid-tag mono-text">Case Strategy</span>
-                <div class="strategy-details">
-                    <h4 class="serif">Архитектура смыслов</h4>
-                    <p>
-                        В основе стратегии лежит «кайросовое» планирование и привычки, подтвержденные наукой. Я не просто снимаю эстетичные видео — я проектирую путь пользователя от кликбейтного заголовка до глубокого лонгрида в комментариях.
-                    </p>
-                    <ul class="strategy-list mono-text">
-                        <li>— Визуальный код: Parisian minimalism</li>
-                        <li>— Тональность: Экспертная, но эмпатичная</li>
-                        <li>— Инструменты: Figma, CapCut, AI-аналитика</li>
-                    </ul>
+                    <div class="grid-item info-slot">
+                        <span class="grid-tag mono-text">Analysis</span>
+                        <div class="strategy-details">
+                            <h4 class="serif">Кейс: Название ${i}</h4>
+                            <p>Описание того, какая задача стояла перед этим видео и каких результатов удалось достичь. Около 500 символов текста о смыслах, триггерах и архитектуре конкретного выпуска.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            `).join('')}
         </div>
     </div>
 `
