@@ -2782,27 +2782,45 @@
 
 /* 4. Стили полосок */
 .timeline-bar {
+    /* Позиционирование по сетке */
     grid-column: var(--start) / span var(--duration);
     grid-row: var(--row);
-    /* Добавляем, чтобы текст не выпадал */
-    min-height: 35px;
-    overflow: hidden; 
+
+    /* Оформление: теперь они точно красные */
+    background-color: var(--accent-red) !important; 
+    color: white !important;
+    
+    /* Работа с текстом */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Текст начинается слева */
+    padding: 0 8px;
+    font-size: 10px; /* Уменьшаем шрифт, чтобы влезало больше текста */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    /* Делаем так, чтобы текст не обрезался и не переносился */
+    white-space: nowrap; 
+    overflow: visible; /* Позволяет тексту выходить за границы коротких полосок */
+    
+    border-radius: 2px;
+    position: relative;
+    z-index: 2;
+    min-height: 28px; /* Достаточная высота для читаемости */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 /* Текст внутри полоски (название компании) */
 .timeline-bar::after {
     content: attr(data-label);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    position: relative;
+    left: 0;
 }
 
 /* Убираем старый ::before, который дублировал текст сверху и создавал «слипание» */
 .timeline-bar::before {
-    display: none; 
+    display: none !important;
 }
 
 /* Эффект при наведении */
