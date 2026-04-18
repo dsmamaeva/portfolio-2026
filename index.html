@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Да рья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -2709,82 +2709,79 @@
     margin-bottom: 0 !important;
     padding-bottom: 10px !important;
 }
-
+/* 1. Основная секция и контейнеры */
 .timeline-section {
-    padding: 60px 0;
+    padding: 40px 0;
     padding-top: 10px !important;
-    background-color: transparent; /* Или чуть другой оттенок, если хочешь выделить */
+    background-color: transparent;
+    overflow: hidden; /* Чтобы ничего не вылетало за границы */
 }
 
-/* Контейнер с ограничением ширины и центрированием */
 .timeline-container {
-    max-width: 1100px; /* Ограничиваем, чтобы не растягивался на весь экран */
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 40px; /* Отступы по бокам внутри контейнера */
+    padding: 0 20px;
 }
+
 .visual-timeline {
     width: 100%;
-    overflow-x: auto; /* Позволяет скроллить на маленьких экранах */
-    padding: 40px 0;
-    scrollbar-width: none; /* Скрываем скроллбар для эстетики */
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    overflow-x: auto;
+    scrollbar-width: none; /* Скрываем стандартный скролл */
+    padding-top: 20px;
 }
 
-    .visual-timeline::-webkit-scrollbar {
-    display: none; /* Для Chrome/Safari */
+.visual-timeline::-webkit-scrollbar {
+    display: none; /* Скрываем скролл для Chrome/Safari */
 }
 
+/* 2. Сетка таймлайна */
 .timeline-grid {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    overflow-x: auto; /* На случай, если экран будет слишком узким */
-    padding-bottom: 20px;
+    min-width: 800px; /* Чтобы на мобильных не сжималось в точку, а скроллилось */
 }
 
-    .experience-summary {
-    margin-top: 20px;
-    padding-left: 0;
-    border-left: 2px solid var(--accent-red);
-    padding-left: 20px;
-}
-
+/* Шапка с годами */
 .grid-header {
     display: grid;
-    /* 6 лет по 12 месяцев = 72 колонки */
-    grid-template-columns: repeat(72, 1fr); 
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 15px;
+    /* 72 колонки (6 лет * 12 месяцев) */
+    grid-template-columns: repeat(72, 1fr);
+    border-bottom: 1px solid rgba(139, 26, 26, 0.2);
+    margin-bottom: 20px;
 }
 
-    .grid-header span {
-    grid-column: span 12; /* Каждый год занимает 12 колонок (месяцев) */
-    font-size: 0.85rem;
+.grid-header span {
+    grid-column: span 12;
+    font-size: 0.75rem;
     font-weight: 600;
+    letter-spacing: 1px;
     color: var(--accent-red);
-    padding-bottom: 5px;
+    padding-bottom: 8px;
+    text-align: left;
 }
 
+/* 3. Контейнер полосок */
 .bars-container {
     display: grid;
-    grid-template-columns: repeat(72, 1fr); /* Сетка на 72 месяца */
-    grid-auto-rows: 35px; /* Высота одной строки */
-    gap: 8px 0; /* Отступы между строками */
+    grid-template-columns: repeat(72, 1fr);
+    /* Увеличиваем высоту строки, чтобы названия помещались */
+    grid-auto-rows: 45px; 
+    gap: 12px 0;
     position: relative;
 }
 
-/* Вертикальные линии годов для ориентира */
+/* Вертикальные направляющие (сетка годов) */
 .bars-container::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px);
-    background-size: calc(100% / 5) 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: calc(100% / 6) 100%;
     pointer-events: none;
+    z-index: 0;
 }
 
+/* 4. Стили полосок */
 .timeline-bar {
     grid-column: var(--start) / span var(--duration);
     grid-row: var(--row);
@@ -2793,40 +2790,46 @@
     font-size: 0.7rem;
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    border-radius: 4px;
+    padding: 0 12px;
+    border-radius: 2px; /* Более строгий стиль */
     white-space: nowrap;
     position: relative;
-    opacity: 0.9;
-    transition: var(--transition);
-    cursor: default;
+    z-index: 2;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Текст внутри полоски (название компании) */
 .timeline-bar::after {
     content: attr(data-label);
-    position: absolute;
-    left: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-}
-
-.timeline-bar:hover {
-    opacity: 1;
-    transform: scaleY(1.05);
-    z-index: 10;
-}
-
-/* Названия компаний */
-.timeline-bar::before {
-    content: attr(data-label);
-    position: absolute;
-    top: -16px;
-    left: 0;
-    font-size: 0.65rem;
-    text-transform: uppercase;
     font-weight: 600;
-    color: var(--text-dark);
-    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Убираем старый ::before, который дублировал текст сверху и создавал «слипание» */
+.timeline-bar::before {
+    display: none; 
+}
+
+/* Эффект при наведении */
+.timeline-bar:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(139, 26, 26, 0.3);
+}
+
+/* Описание под таймлайном (если используется) */
+.experience-summary {
+    margin-top: 30px;
+    border-left: 2px solid var(--accent-red);
+    padding-left: 20px;
+    font-style: italic;
 }
 
 
