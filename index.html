@@ -2149,7 +2149,7 @@
 
 
 
-    <div id="case-overlay" class="overlay" onclick="closeCase()">
+<div id="case-overlay" class="overlay">
     <div class="overlay-content">
         <div id="case-content"></div> <button class="close-btn" onclick="closeCase()">✕</button>
     </div>
@@ -3738,18 +3738,16 @@ const pathCases = {
     `
 };
 
-// Функция открытия деталей пути
-function openPathDetails(caseId) {
+function openPathDetails(caseId) { // Здесь должно быть имя переменной БЕЗ кавычек
     const overlay = document.getElementById('case-overlay');
     const content = document.getElementById('case-content');
     
-    // Проверяем, существует ли такой ключ в нашем объекте pathCases
-    if (pathCases[caseId]) {
-        content.innerHTML = pathCases[caseId]; // Вставляем верстку веерного меню
-        overlay.style.display = 'block';       // Показываем оверлей
-        document.body.style.overflow = 'hidden'; // Запрещаем скролл основной страницы
+    // Используем caseId, чтобы функция работала для любого места работы
+    if (pathCases[caseId]) { 
+        content.innerHTML = pathCases[caseId]; 
+        overlay.style.display = 'block';       
+        document.body.style.overflow = 'hidden'; 
     } else {
-        // Если передали цифру 1 или другой ID, которого нет в pathCases
         console.error("Кейс не найден в объекте pathCases:", caseId);
     }
 }
