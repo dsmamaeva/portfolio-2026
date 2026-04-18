@@ -3719,14 +3719,14 @@ const pathCases = {
 };
 
 // 2. Единая функция открытия
-function openPathDetails(caseId) {
+function openPathDetails(caseId) { 
     const overlay = document.getElementById('case-overlay');
     const content = document.getElementById('case-content');
     
-    if (pathCases[caseId]) {
-        content.innerHTML = pathCases[caseId];
-        overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+    if (pathCases[caseId]) { 
+        content.innerHTML = pathCases[caseId]; 
+        overlay.style.display = 'block';       
+        document.body.style.overflow = 'hidden'; 
     } else {
         console.error("Кейс не найден:", caseId);
     }
