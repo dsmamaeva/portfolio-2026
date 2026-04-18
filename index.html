@@ -2052,9 +2052,9 @@
 
 
 
-/* 1. Основной фон-подложка (на весь экран) */
+/* 1. Основной фон-подложка */
 .exp-modal {
-    display: none; /* Скрыто до нажатия кнопки */
+    display: none;
     position: fixed;
     z-index: 3000;
     left: 0;
@@ -2062,15 +2062,15 @@
     width: 100%;
     height: 100%;
     background-color: rgba(26, 26, 26, 0.1); 
-    backdrop-filter: blur(4px); /* Размытие заднего плана */
+    backdrop-filter: blur(4px);
 }
 
-/* 2. Контейнер контента (панель слева) */
+/* 2. Увеличенная панель контента (теперь 850px для большего простора) */
 .exp-modal-side-content {
     position: absolute;
     left: 0;
     top: 0;
-    width: 650px; 
+    width: 850px; 
     height: 100%;
     background-color: var(--bg-cream);
     box-shadow: 10px 0 30px rgba(0,0,0,0.1);
@@ -2104,15 +2104,15 @@
     flex-direction: row; 
     align-items: center;
     width: 100%;
-    justify-content: flex-end; 
+    justify-content: flex-end; /* Логотип прижат к правому краю панели */
 }
 
-/* 5. SVG Линии (отзеркаленные) */
+/* 5. Удлиненные SVG Линии */
 .exp-lines-svg.mirrored-svg {
     position: absolute;
-    right: 110px; /* Совпадает с шириной логотипа */
-    width: 160px;
-    height: 420px;
+    right: 110px; 
+    width: 300px; /* Увеличили ширину линий с 160px до 300px */
+    height: 450px;
     fill: none;
     stroke: var(--accent-red);
     stroke-width: 1.2;
@@ -2131,7 +2131,7 @@
     to { stroke-dashoffset: 0; }
 }
 
-/* 7. Контейнер для логотипа РБК (квадрат 1:1) */
+/* 7. Логотип РБК */
 .exp-root-logo {
     position: relative;
     z-index: 2;
@@ -2153,18 +2153,19 @@
     object-fit: cover;
 }
 
-/* 8. Список текстов слева */
+/* 8. Список текстов (сдвинут максимально влево) */
 .exp-items-list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 450px;
+    height: 500px;
     z-index: 2;
-    margin-right: 180px; 
+    margin-right: 320px; /* Увеличен отступ, чтобы текст ушел влево и не касался логотипа */
+    flex: 1; /* Позволяет блоку занимать всё свободное место слева */
 }
 
 .exp-item-node {
-    max-width: 280px;
+    max-width: 350px; /* Увеличили ширину самого текста, чтобы он не был слишком узким */
     opacity: 0;
     animation: fadeIn 0.8s ease-out forwards;
 }
