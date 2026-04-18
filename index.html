@@ -863,6 +863,11 @@
         <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Приложение для аудиоэкскурсий</button>
         <button class="text-nav-btn" onclick="showDesignCase('market-cards')">Карточки для Meet Market</button>
     </div>
+
+    <div id="design-display" style="margin-top: 60px; display: none; border-top: 1px solid #eee; padding-top: 40px;">
+        <div id="design-content" style="max-width: 800px; margin: 0 auto; line-height: 1.8; font-family: 'Montserrat', sans-serif;">
+            </div>
+    </div>
 </div>
         
 </div>
@@ -4379,11 +4384,33 @@ function toggleDesignFolder() {
     }
 }
 
-// Заглушка для открытия конкретных кейсов дизайна (если планируешь делать оверлеи)
 function showDesignCase(caseId) {
-    console.log("Открываем кейс дизайна:", caseId);
-    // Здесь можно вызвать функцию открытия оверлея, аналогичную openCase()
-    openCase(caseId); 
+    const display = document.getElementById('design-display');
+    const content = document.getElementById('design-content');
+    
+    // Объект с данными кейсов (можно дополнять)
+    const cases = {
+        'b2b-site': `
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Сайт для B2B сегмента</h2>
+            <p>Проектирование пользовательских сценариев и визуальной концепции для корпоративного сектора. Фокус на чистоту интерфейса, логику навигации и конверсионные блоки.</p>
+        `,
+        'audio-app': `
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Приложение для аудиоэкскурсий</h2>
+            <p>Разработка интерфейса (UI/UX) для городских прогулок. Создание интуитивного плеера, интерактивных карт и визуального стиля, погружающего в атмосферу города.</p>
+        `,
+        'market-cards': `
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Карточки для Meet Market</h2>
+            <p>Дизайн графических материалов для маркетплейса. Работа с композицией, типографикой и цветокоррекцией для выделения продукта в ленте и повышения CTR.</p>
+        `
+    };
+
+    if (cases[caseId]) {
+        content.innerHTML = cases[caseId];
+        display.style.display = 'block';
+        
+        // Плавный скролл к началу контента
+        display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 }
     
 </script>
