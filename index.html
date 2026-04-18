@@ -2047,6 +2047,106 @@
     .side-panel { border-right: none; padding-right: 0; }
     .main-path { margin-top: 50px; }
 }
+
+
+
+
+
+
+
+    /* --- ВЕЕРНОЕ МЕНЮ ОБЯЗАННОСТЕЙ --- */
+.rbc-case-wrapper {
+    background: #fff;
+    padding: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fan-menu-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 500px; /* Высота меню */
+    align-items: center;
+}
+
+/* SVG Линии */
+.fan-lines-svg {
+    position: absolute;
+    top: 0;
+    left: 20%; /* Смещение чтобы текст был слева */
+    width: 80%; /* Занимает всю правую часть */
+    height: 100%;
+    z-index: 1;
+}
+
+.fan-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 1.5s ease forwards;
+}
+
+/* Текстовые блоки (Слева) */
+.fan-content {
+    flex: 1; /* Текст занимает левую часть */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    position: relative;
+    z-index: 2;
+    padding-right: 20px;
+}
+
+.fan-item {
+    width: 350px; /* Ограничиваем ширину текста */
+    transition: 0.3s;
+}
+
+.fan-tag {
+    color: var(--accent-red);
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fan-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Позиционирование силуэта (Справа) */
+.silhouette-container {
+    flex: 0 0 200px; /* Фиксированная ширина */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.silhouette-img {
+    width: 150px;
+    opacity: 0.2; /* Как водяной знак */
+}
+
+/* Анимация прорисовки линий */
+@keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 900px) {
+    .rbc-case-wrapper { padding: 30px; }
+    .fan-menu-container { flex-direction: column; min-height: auto; gap: 40px; }
+    .fan-lines-svg { display: none; }
+    .fan-content { width: 100%; height: auto; gap: 20px; }
+    .fan-item { width: 100%; }
+    .silhouette-container { display: none; }
+}
 </style>
 
 <script>
@@ -3499,11 +3599,70 @@ const videoCases = {
 
 
 
-    function openPathDetails(stepId) {
-    console.log("Открываем детали для этапа:", stepId);
-    // Здесь мы позже настроим всплывающие окна или переход к кейсам
-    alert("Детали этапа " + stepId + " будут настроены позже.");
+const pathCases = {
+    // ДАННЫЕ ДЛЯ РБК (Меню-веер)
+    'rbc-details': `
+        <div class="case-wrapper rbc-case-wrapper">
+            <header class="blog-hero">
+                <div class="blog-hero-text" style="width: 100%; max-width: 600px; margin: 0 auto; text-align: center; margin-bottom: 60px;">
+                    <span class="mono-label" style="color:var(--accent-red); margin-bottom: 20px;">KEY RESPONSIBILITIES</span>
+                    <h2 class="blog-title serif" style="font-size: 3.5rem; color:var(--accent-red); margin-bottom: 0;">РБК</h2>
+                    <p style="font-family:'Courier New', monospace; font-size: 0.8rem; letter-spacing: 2px;">Организатор Business Day</p>
+                </div>
+            </header>
+
+            <div class="fan-menu-container">
+                <svg class="fan-lines-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path class="fan-line" d="M100,50 C60,50 40,20 0,10" fill="none" stroke="#8B1A1A" stroke-width="0.3" />
+                    <path class="fan-line" d="M100,50 C60,50 40,50 0,50" fill="none" stroke="#8B1A1A" stroke-width="0.3" />
+                    <path class="fan-line" d="M100,50 C60,50 40,80 0,90" fill="none" stroke="#8B1A1A" stroke-width="0.3" />
+                </svg>
+
+                <div class="fan-content">
+                    <div class="fan-item item-top">
+                        <span class="mono-text fan-tag">#01</span>
+                        <p class="fan-text serif">Координирование проекта «Бизнес-день в Казани 2026». Обеспечение коммуникации с участниками и привлечение пула технологических и бизнес-партнеров.</p>
+                    </div>
+                    <div class="fan-item item-mid">
+                        <span class="mono-text fan-tag">#02</span>
+                        <p class="fan-text serif">Глубокое исследование экосистемы холдинга РБК для разработки модели регионального развития и создания совместных медиапродуктов.</p>
+                    </div>
+                    <div class="fan-item item-bot">
+                        <span class="mono-text fan-tag">#03</span>
+                        <p class="fan-text serif">Подготовка экспертных материалов и рерайт сложных новостных сводок на основе анализа первичной документации и данных мониторинга инфополя.</p>
+                    </div>
+                </div>
+
+                <div class="silhouette-container">
+                    <img src="path_to_silhouette.png" alt="silhouette" class="silhouette-img">
+                </div>
+            </div>
+            
+            <p style="text-align:center; color: #888; font-size: 0.7rem; margin-top: 40px; font-family: monospace;">[ КЛИКНИТЕ НА ЛЮБОЕ МЕСТО, ЧТОБЫ ЗАКРЫТЬ ]</p>
+        </div>
+    `,
+
+    // Позже мы добавим 'kp-details' по этой же аналогии
+};
+
+
+
+
+function openPathDetails(caseId) {
+    const overlay = document.getElementById('case-overlay');
+    const content = document.getElementById('case-content');
+    
+    // Используем id, который мы прописали в pathCases, например openPathDetails('rbc-details')
+    if (pathCases[caseId]) {
+        content.innerHTML = pathCases[caseId];
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Запретить скролл страницы
+    } else {
+        console.error("Кейс не найден:", caseId);
+    }
 }
+
+    
     
 </script>
 
