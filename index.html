@@ -538,12 +538,16 @@
                     <path d="M50,0 C100,100 0,200 50,300 C100,400 0,500 50,600" stroke="#8B1A1A" stroke-width="0.3" fill="none" />
                 </svg>
 
-                <div class="path-node node-right" style="--node-size: 140px; --top-pos: 40px;">
+<div class="path-node node-right">
     <div class="node-content">
         <span class="path-years">декабрь 2025 — апрель 2026</span>
         <h4 class="serif">РБК (РосБизнесКонсалтинг)</h4>
         <span class="path-years">Менеджер проектов</span>
     </div>
+    <button class="node-circle" onclick="openExpModal()">подробнее</button>
+</div>
+
+                    
     <button class="node-circle" onclick="openExpModal()">подробнее</button>
 </div>
                 <div class="path-node node-left" style="--node-size: 110px; --top-pos: 240px;">
@@ -1886,17 +1890,17 @@
 
 
 
-
-
-    .path-section {
+/* 1. Общая секция таймлайна */
+.path-section {
     padding: 100px 0;
-    background: #fdfaf7; /* Твой кремовый фон */
+    background: #fdfaf7;
+    overflow: hidden; /* Чтобы круги не вылезали за границы */
 }
 
 .path-wrapper {
     position: relative;
-    max-width: 900px;
-    height: 800px; /* Общая высота таймлайна */
+    max-width: 1000px; /* Немного расширил для комфорта текста */
+    height: 800px; 
     margin: 0 auto;
 }
 
@@ -1911,9 +1915,9 @@
     opacity: 0.4;
 }
 
-/* Общий стиль для каждого узла */
+/* 2. Общий стиль для каждого узла (строки) */
 .path-node {
-    position: absolute;
+    position: absolute; /* Позиционируется по высоте через --top-pos */
     display: flex;
     align-items: center;
     width: 100%;
@@ -1921,85 +1925,132 @@
     z-index: 2;
 }
 
+/* 3. Универсальный стиль КРУГА (теперь всегда по центру линии) */
 .node-circle {
-    width: var(--node-size);
-    height: var(--node-size);
+    position: absolute;
+    left: 50%; /* Строго центр */
+    transform: translate(-50%, -50%); /* Идеальное центрирование */
+    top: 50%;
+    width: var(--node-size, 140px);
+    height: var(--node-size, 140px);
     background: #8B1A1A;
     border-radius: 50%;
     border: none;
     color: white;
-    font-size: 0.7rem;
-    font-family: monospace;
+    font-size: 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: lowercase;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-    box-shadow: 0 10px 30px rgba(139, 26, 26, 0.15);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(139, 26, 26, 0.2);
 }
 
 .node-circle:hover {
-    transform: scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* Позиционирование контента */
-.node-right { justify-content: center; padding-left: 100px; }
-.node-left { justify-content: center; padding-right: 100px; }
-
-.node-right .node-circle {
-    position: absolute;
-    right: 0; /* Крепим круг к самому правому краю контейнера */
-    top: 50%;
-    transform: translateY(-50%); /* Центрируем по вертикали относительно текста */
-    z-index: 2; /* Круг поверх всего */
-    margin-right: 0; /* Убираем лишние отступы */
-}
-.node-left .node-circle { margin-right: -50px; }
-
-
-
-    /* Если у вас общие стили для всех нод, добавим специфики для правой */
-.path-node.node-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    min-height: 140px; /* Чтобы круг точно вписался */
-}
-    
-.node-content {
-    width: 250px;
+/* 4. Позиционирование ПРАВОГО блока (РБК) */
+.node-right {
+    justify-content: flex-start; /* Начинаем отсчет от центра */
+    padding-left: 50%; 
 }
 
 .node-right .node-content {
-    text-align: right; /* Текст прижат к правой стороне, но... */
-    padding-right: 160px; /* ...мы добавляем огромный отступ справа, чтобы освободить место под круг */
-    position: relative;
-    z-index: 1; /* Текст будет под кругом, если они вдруг пересекутся */
-}
-.node-left .node-content { 
-    text-align: left;    /* Текст выровнен по левому краю */
-    padding-left: 160px; /* Отступ СЛЕВА, чтобы освободить место под круг */
-    padding-right: 0;    /* Справа отступ не нужен */
+    text-align: left; /* Текст читается слева направо */
+    padding-left: 100px; /* Отступ от круга, чтобы не было нахлеста */
+    display: flex;
+    flex-direction: column;
 }
 
-.path-years { color: #8B1A1A; font-family: monospace; font-size: 0.8rem; }
-.node-content h4 { margin: 5px 0; font-size: 1.4rem; }
-.node-content p { color: #666; font-size: 0.9rem; }
+/* 5. Позиционирование ЛЕВОГО блока */
+.node-left {
+    justify-content: flex-end; /* Начинаем отсчет от центра в обратную сторону */
+    padding-right: 50%;
+}
 
-/* Адаптив для мобильных (линия становится прямой) */
+.node-left .node-content {
+    text-align: right; /* Текст прижат к кругу справа налево */
+    padding-right: 100px; /* Отступ от круга */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 6. Оформление текста внутри узлов */
+.path-years { 
+    color: #8B1A1A; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.85rem; 
+    font-weight: 600;
+}
+
+.node-content h4 { 
+    margin: 8px 0; 
+    font-size: 1.5rem; 
+    line-height: 1.2;
+    color: #1a1a1a;
+}
+
+.node-content .path-role { 
+    color: #666; 
+    font-size: 0.95rem; 
+    font-weight: 300;
+}
+
+/* 7. Адаптив для мобильных (линия становится прямой слева) */
 @media (max-width: 768px) {
     .path-svg { display: none; }
-    .path-wrapper::before {
-        content: ''; position: absolute; left: 30px; top: 0; width: 2px; height: 100%; background: #8B1A1A; opacity: 0.3;
+    
+    .path-wrapper {
+        height: auto; /* На мобилках высота зависит от контента */
+        padding-left: 20px;
     }
-    .path-node { position: relative; top: 0 !important; margin-bottom: 50px; justify-content: flex-start; padding-left: 60px; }
-    .node-content { text-align: left !important; }
-    .node-circle { width: 60px !important; height: 60px !important; position: absolute; left: 30px; transform: translateX(-50%); }
-}
 
+    .path-wrapper::before {
+        content: ''; 
+        position: absolute; 
+        left: 40px; 
+        top: 0; 
+        width: 2px; 
+        height: 100%; 
+        background: #8B1A1A; 
+        opacity: 0.2;
+    }
+
+    .path-node { 
+        position: relative !important; 
+        top: 0 !important; 
+        margin-bottom: 80px; 
+        padding: 0 !important;
+        justify-content: flex-start !important;
+    }
+
+    .node-circle { 
+        position: relative;
+        left: 40px !important; 
+        transform: translateX(-50%) !important; 
+        width: 80px !important; 
+        height: 80px !important;
+        flex-shrink: 0;
+    }
+
+    .node-circle:hover {
+        transform: translateX(-50%) scale(1.05) !important;
+    }
+
+    .node-content { 
+        text-align: left !important; 
+        padding: 0 0 0 60px !important; 
+    }
+    
+    .node-content h4 {
+        font-size: 1.2rem;
+    }
+}
+    
 
 
 
