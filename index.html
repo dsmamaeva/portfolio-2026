@@ -859,7 +859,7 @@
     <div class="container timeline-container">
         <div class="visual-timeline">
             <div class="timeline-grid">
-<div class="grid-header" style="display: grid; grid-template-columns: repeat(6, 1fr); text-align: left;">
+<div class="grid-header">
     <span>2021</span>
     <span>2022</span>
     <span>2023</span>
@@ -2743,31 +2743,30 @@
 
 /* Шапка с годами */
 .grid-header {
-    display: grid;
-    /* 72 колонки (6 лет * 12 месяцев) */
-    grid-template-columns: repeat(72, 1fr);
+    display: grid !important; /* !important на случай конфликтов */
+    grid-template-columns: repeat(72, 1fr); 
     border-bottom: 1px solid rgba(139, 26, 26, 0.2);
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .grid-header span {
-    grid-column: span 12;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+    grid-column: span 12; /* Ровно по 12 колонок на каждый из 6 лет */
+    font-size: 0.8rem;
     color: var(--accent-red);
-    padding-bottom: 8px;
     text-align: left;
+    padding-bottom: 10px;
 }
 
 /* 3. Контейнер полосок */
 .bars-container {
     display: grid;
     grid-template-columns: repeat(72, 1fr);
-    /* Увеличиваем высоту строки, чтобы названия помещались */
-    grid-auto-rows: 45px; 
-    gap: 12px 0;
+    /* Если полосок много, лучше использовать min-content, чтобы они не сжимались */
+    grid-auto-rows: minmax(35px, auto); 
+    gap: 15px 0; /* Увеличил вертикальный отступ для чистоты */
     position: relative;
+    width: 100%;
 }
 
 /* Вертикальные направляющие (сетка годов) */
@@ -2785,19 +2784,9 @@
 .timeline-bar {
     grid-column: var(--start) / span var(--duration);
     grid-row: var(--row);
-    background-color: var(--accent-red);
-    color: white;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    border-radius: 2px; /* Более строгий стиль */
-    white-space: nowrap;
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Добавляем, чтобы текст не выпадал */
+    min-height: 35px;
+    overflow: hidden; 
 }
 
 /* Текст внутри полоски (название компании) */
