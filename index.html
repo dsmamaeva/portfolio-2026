@@ -855,40 +855,41 @@
             </section>
 
 
-            <section class="timeline-section">
-                <div class="container timeline-container">
-<div class="visual-timeline">
-    <div class="timeline-grid">
-        <div class="grid-header">
-            <span>2022</span>
-            <span>2023</span>
-            <span>2024</span>
-            <span>2025</span>
-            <span>2026</span>
-        </div>
+<section class="timeline-section">
+    <div class="container timeline-container">
+        <div class="visual-timeline">
+            <div class="timeline-grid">
+                <div class="grid-header">
+                    <span>2021</span>
+                    <span>2022</span>
+                    <span>2023</span>
+                    <span>2024</span>
+                    <span>2025</span>
+                    <span>2026</span>
+                </div>
 
-        <div class="bars-container">
-            <div class="timeline-bar" style="--start: 6; --duration: 3; --row: 1;" data-label="Авторадио"></div>
-            
-            <div class="timeline-bar" style="--start: 17; --duration: 6; --row: 2;" data-label="Телеканал 78"></div>
-            
-            <div class="timeline-bar" style="--start: 22; --duration: 15; --row: 3;" data-label="Администрация"></div>
-            
-            <div class="timeline-bar" style="--start: 28; --duration: 5; --row: 4;" data-label="Комсомольская Правда"></div>
-            
-            <div class="timeline-bar" style="--start: 31; --duration: 13; --row: 1;" data-label="Neva Today"></div>
-            
-            <div class="timeline-bar" style="--start: 33; --duration: 14; --row: 2;" data-label="Manerate"></div>
-            
-            <div class="timeline-bar" style="--start: 36; --duration: 12; --row: 5;" data-label="Meet Market"></div>
-            
-            <div class="timeline-bar" style="--start: 39; --duration: 10; --row: 4;" data-label="Simple Wine"></div>
-            
-            <div class="timeline-bar" style="--start: 48; --duration: 5; --row: 3;" data-label="РБК"></div>
+                <div class="bars-container">
+                    <div class="timeline-bar" style="--start: 6; --duration: 3; --row: 1;" data-label="Орленок / Пресс-служба ЛО"></div>
+                    <div class="timeline-bar" style="--start: 10; --duration: 4; --row: 2;" data-label="Marketing team"></div>
+
+                    <div class="timeline-bar" style="--start: 18; --duration: 3; --row: 1;" data-label="Авторадио"></div>
+
+                    <div class="timeline-bar" style="--start: 29; --duration: 3; --row: 3;" data-label="Комитет по мол. политике"></div>
+                    <div class="timeline-bar" style="--start: 29; --duration: 6; --row: 4;" data-label="Телеканал 78"></div>
+                    <div class="timeline-bar" style="--start: 34; --duration: 15; --row: 5;" data-label="Администрация"></div>
+
+                    <div class="timeline-bar" style="--start: 40; --duration: 5; --row: 1;" data-label="Комсомольская правда"></div>
+                    <div class="timeline-bar" style="--start: 43; --duration: 13; --row: 2;" data-label="Neva Today"></div>
+                    <div class="timeline-bar" style="--start: 45; --duration: 14; --row: 3;" data-label="Manerate"></div>
+                    <div class="timeline-bar" style="--start: 48; --duration: 12; --row: 4;" data-label="Meet Market"></div>
+
+                    <div class="timeline-bar" style="--start: 51; --duration: 10; --row: 1;" data-label="Simple Wine"></div>
+                    <div class="timeline-bar" style="--start: 60; --duration: 5; --row: 5;" data-label="РБК"></div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-                    </div>
+
 
 
 
@@ -2750,9 +2751,8 @@
 
 .bars-container {
     display: grid;
-    grid-template-columns: repeat(60, 1fr); /* 5 лет по 12 мес */
-    grid-template-rows: repeat(6, var(--timeline-row-height));
-    gap: var(--timeline-gap) 0;
+    grid-template-rows: repeat(5, 30px); /* 5 рядов по 30 пикселей */
+    gap: 10px;
     position: relative;
 }
 
@@ -2769,12 +2769,7 @@
 .timeline-bar {
     grid-column: var(--start) / span var(--duration);
     grid-row: var(--row);
-    background: var(--accent-red);
-    height: 28px;
-    border-radius: 2px;
-    opacity: 0.85;
-    position: relative;
-    transition: var(--transition);
+  
 }
 
 .timeline-bar:hover {
