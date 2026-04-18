@@ -2736,13 +2736,12 @@
 }
 
 .timeline-grid {
-    display: grid;
-    /* Создаем 72 равные колонки (по 1 на каждый месяц за 6 лет) */
-    grid-template-columns: repeat(72, 1fr); 
-    position: relative;
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto; /* На случай, если экран будет слишком узким */
+    padding-bottom: 20px;
 }
 
     .experience-summary {
@@ -2754,22 +2753,26 @@
 
 .grid-header {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    color: #888;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
+    /* 6 лет по 12 месяцев = 72 колонки */
+    grid-template-columns: repeat(72, 1fr); 
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+}
+
+    .grid-header span {
+    grid-column: span 12; /* Каждый год занимает 12 колонок (месяцев) */
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-red);
+    padding-bottom: 5px;
 }
 
 .bars-container {
     display: grid;
-    grid-template-columns: repeat(72, 1fr); /* Дублируем сетку для баров */
-    grid-template-rows: repeat(6, 35px);    /* Увеличим количество рядов до 6 */
-    gap: 8px 0;
+    grid-template-columns: repeat(72, 1fr); /* Сетка на 72 месяца */
+    grid-auto-rows: 35px; /* Высота одной строки */
+    gap: 8px 0; /* Отступы между строками */
     position: relative;
-    margin-top: 20px;
 }
 
 /* Вертикальные линии годов для ориентира */
@@ -2783,33 +2786,34 @@
 }
 
 .timeline-bar {
-    /* Используем переменные для позиционирования */
     grid-column: var(--start) / span var(--duration);
     grid-row: var(--row);
-    
-    background: var(--accent-red);
-    height: 20px;
-    border-radius: 10px;
-    position: relative;
+    background-color: var(--accent-red);
+    color: white;
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
+    padding: 0 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    position: relative;
+    opacity: 0.9;
+    transition: var(--transition);
+    cursor: default;
 }
 
-    .timeline-bar::after {
+.timeline-bar::after {
     content: attr(data-label);
     position: absolute;
-    top: -18px;
-    left: 5px;
-    font-size: 0.65rem;
-    white-space: nowrap;
-    color: #666;
+    left: 10px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
 
 .timeline-bar:hover {
     opacity: 1;
-    filter: brightness(1.2);
-    transform: translateY(-2px);
+    transform: scaleY(1.05);
+    z-index: 10;
 }
 
 /* Названия компаний */
