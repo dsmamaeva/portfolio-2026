@@ -533,37 +533,39 @@
         </aside>
 
         <main class="main-path">
-            <div class="path-wrapper">
-                <svg class="path-svg" viewBox="0 0 100 600" preserveAspectRatio="none">
-                    <path d="M50,0 C100,100 0,200 50,300 C100,400 0,500 50,600" stroke="#8B1A1A" stroke-width="0.3" fill="none" />
-                </svg>
+<div class="path-wrapper">
+    <svg class="path-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+        <path d="M50,0 C100,200 0,400 50,600 C100,800 0,1000 50,1200" stroke="#8B1A1A" stroke-width="0.3" fill="none" />
+    </svg>
 
-<div class="path-node node-right">
-    <div class="node-content">
-        <span class="path-years">декабрь 2025 — апрель 2026</span>
-        <h4 class="serif">РБК (РосБизнесКонсалтинг)</h4>
-        <span class="path-years">Менеджер проектов</span>
+    <div class="path-node node-right" style="--node-size: 140px; --top-pos: 50px;">
+        <div class="node-content">
+            <span class="path-years">декабрь 2025 — апрель 2026</span>
+            <h4 class="serif">РБК</h4>
+            <span class="path-role">Менеджер проектов</span>
+        </div>
+        <button class="node-circle">подробнее</button>
     </div>
-    <button class="node-circle" onclick="openExpModal()">Подробнее</button>
-</div>
 
-               <div class="path-node node-left" style="--node-size: 100px; --top-pos: 280px;">
-    <div class="node-content">
-        <span class="path-years">ноябрь 2024 — октябрь 2025</span>
-        <h4 class="serif">Meet Market</h4>
-        <span class="path-role">Креативный менеджер (ведущий контент-стратег)</span>
+    <div class="path-node node-left" style="--node-size: 100px; --top-pos: 280px;">
+        <div class="node-content">
+            <span class="path-years">2024 — 2025</span>
+            <h4 class="serif">Meet Market</h4>
+            <span class="path-role">Креативный менеджер</span>
+        </div>
+        <button class="node-circle">подробнее</button>
     </div>
-    <button class="node-circle" onclick="openExpModal()">подробнее</button>
-</div>
 
-                <div class="path-node node-right" style="--node-size: 90px; --top-pos: 450px;">
-                    <div class="node-content">
-                        <span class="path-years">2020</span>
-                        <h4 class="serif">ЛГУ</h4>
-                    </div>
-                    <button class="node-circle">подробнее</button>
-                </div>
-            </div>
+    <div class="path-node node-right" style="--node-size: 80px; --top-pos: 480px;">
+        <div class="node-content">
+            <span class="path-years">2020</span>
+            <h4 class="serif">ЛГУ</h4>
+            <span class="path-role">Бакалавриат</span>
+        </div>
+        <button class="node-circle">подробнее</button>
+    </div>
+    
+    </div>
         </main>
 
     </div>
@@ -1882,28 +1884,22 @@
     .path-circle { left: 30px; transform: translateX(-50%); width: 60px; height: 60px; font-size: 0.5rem; }
     .path-content { text-align: left !important; padding: 0; }
 }
-
-
-
-
-
-
-/* Контейнер всей секции */
+/* 1. Контейнер всей секции */
 .path-section {
     padding: 100px 0;
     background: #fdfaf7;
     position: relative;
 }
 
-/* Ограничитель ширины */
+/* 2. Ограничитель ширины (обертка) */
 .path-wrapper {
     position: relative;
-    max-width: 1000px; /* Фиксированная ширина, чтобы ничего не летало */
+    max-width: 1000px;
     margin: 0 auto;
-    height: 900px; /* Настрой под свою высоту */
+    height: 1200px; /* Увеличь, если 10 кружков не влезают по вертикали */
 }
 
-/* SVG линия ровно по центру */
+/* 3. SVG линия ровно по центру */
 .path-svg {
     position: absolute;
     top: 0;
@@ -1913,25 +1909,26 @@
     z-index: 1;
 }
 
-/* Общий класс для ноды (строки) */
+/* 4. Общий класс для каждой строки (ноды) */
 .path-node {
-    position: absolute; /* Позиционируем через --top-pos */
+    position: absolute;
+    top: var(--top-pos, 0); 
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     z-index: 2;
-    height: 140px; /* Высота равна размеру круга */
+    min-height: 10px; 
 }
 
-/* КРУГ - теперь он всегда в центре path-wrapper */
+/* 5. Универсальный круг (размер тянется из HTML) */
 .node-circle {
     position: absolute;
-    left: 50%; /* Центр по горизонтали */
+    left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%); /* Идеальное центрирование */
-    width: 140px;
-    height: 140px;
+    transform: translate(-50%, -50%);
+    width: var(--node-size, 140px);
+    height: var(--node-size, 140px);
     background: #8B1A1A;
     border-radius: 50%;
     border: none;
@@ -1951,52 +1948,76 @@
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* ТЕКСТОВЫЙ КОНТЕНТ */
+/* 6. Текстовый контент */
 .node-content {
-    width: 350px; /* Фиксируем ширину текста, чтобы он не улетал */
+    width: 350px; 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* ПРАВАЯ НОДА (Текст справа от линии) */
+/* Текст СПРАВА (как у РБК) */
 .node-right .node-content {
-    left: calc(50% + 100px); /* 50% (линия) + 100px отступа */
+    left: calc(50% + 90px); 
     text-align: left;
 }
 
-/* ЛЕВАЯ НОДА (Текст слева от линии) */
+/* Текст СЛЕВА (как у Meet Market) */
 .node-left .node-content {
-    /* Текст будет СЛЕВА от линии */
-    right: calc(50% + 80px); /* 50% (линия) + отступ (меньше, так как круг меньше) */
+    right: calc(50% + 90px);
     left: auto;
-    text-align: right; /* Текст направлен к линии */
-    width: 320px;
+    text-align: right;
 }
 
-
-    /* Добавим стиль для должности, чтобы она отличалась от годов */
-.path-role {
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 300;
+/* 7. Оформление шрифтов */
+.path-years { 
+    color: #8B1A1A; 
+    font-family: monospace; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
 }
-    
-/* Оформление текста */
-.path-years { color: #8B1A1A; font-family: monospace; font-size: 0.8rem; font-weight: bold; }
-.node-content h4 { margin: 5px 0; font-size: 1.3rem; font-family: 'Playfair Display', serif; }
-.node-content p { color: #666; font-size: 0.9rem; font-weight: 300; }
 
-/* Адаптив для мобилок */
+.node-content h4 { 
+    margin: 5px 0; 
+    font-size: 1.3rem; 
+    font-family: 'Playfair Display', serif; /* Или твой шрифт serif */
+}
+
+.path-role { 
+    color: #666; 
+    font-size: 0.9rem; 
+    font-weight: 300; 
+    display: block;
+}
+
+/* 8. Адаптив для мобильных устройств */
 @media (max-width: 768px) {
-    .path-wrapper { max-width: 100%; padding-left: 20px; }
+    .path-wrapper { max-width: 100%; padding-left: 20px; height: auto !important; }
     .path-svg { display: none; }
-    .path-node { position: relative !important; top: 0 !important; margin-bottom: 60px; height: auto; }
-    .node-circle { position: relative; left: 0; transform: none; width: 80px; height: 80px; margin-bottom: 15px; }
+    .path-node { 
+        position: relative !important; 
+        top: 0 !important; 
+        margin-bottom: 60px; 
+        height: auto; 
+    }
+    .node-circle { 
+        position: relative; 
+        left: 0; 
+        transform: none; 
+        width: 80px !important; 
+        height: 80px !important; 
+        margin-bottom: 15px; 
+    }
     .node-circle:hover { transform: scale(1.05); }
-    .node-content { position: relative; left: 0 !important; right: 0 !important; transform: none; width: 100%; text-align: left !important; }
+    .node-content { 
+        position: relative; 
+        left: 0 !important; 
+        right: 0 !important; 
+        transform: none; 
+        width: 100%; 
+        text-align: left !important; 
+    }
 }
-    
 
 
 
