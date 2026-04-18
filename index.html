@@ -2475,6 +2475,7 @@
     position: relative;
     border-left: 1px solid var(--accent-red); /* Вертикальная линия */
     padding-left: 30px;
+    margin-bottom: 20px !important;
 }
 
 .exp-item {
@@ -2581,10 +2582,15 @@
 }
 
 
-
+    
+.exp-item:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 10px !important;
+}
 
 .timeline-section {
     padding: 60px 0;
+    padding-top: 10px !important;
     background-color: transparent; /* Или чуть другой оттенок, если хочешь выделить */
 }
 
@@ -2599,6 +2605,8 @@
     overflow-x: auto; /* Позволяет скроллить на маленьких экранах */
     padding: 40px 0;
     scrollbar-width: none; /* Скрываем скроллбар для эстетики */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
     .visual-timeline::-webkit-scrollbar {
