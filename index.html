@@ -3177,22 +3177,24 @@
 /* Сетка */
 .mm-grid {
     display: grid;
-    /* 3 колонки для десктопа */
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--mm-grid-gap);
+    /* Явно задаем 3 колонки равной ширины */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Расстояние между карточками */
+    gap: 30px 25px; 
+    width: 100%;
 }
 
 /* Карточка */
 .mm-card {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    transition: var(--transition);
 }
 
 .mm-card-image {
     position: relative;
     width: 100%;
-    /* Пропорция 4:5 (1024x1280) */
+    /* Соотношение 4:5 для формата 1024x1280 */
     aspect-ratio: 4 / 5; 
     overflow: hidden;
     background-color: #f0f0f0;
@@ -3201,8 +3203,8 @@
 .mm-card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover; /* Картинка заполнит область без искажений */
+    display: block;
 }
 
 /* Оверлей при наведении */
@@ -4888,7 +4890,7 @@ function showDesignCase(caseId) {
     </div>
     </div>
 
-    <div class="mm-grid">
+
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-2.jpg" alt="Case 2">
@@ -4898,10 +4900,10 @@ function showDesignCase(caseId) {
             <h4>Проект 02</h4>
             <p>Creative Management</p>
         </div>
-    </div>
+   
     </div>
 
-    <div class="mm-grid">
+  
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-3.jpg" alt="Case 3">
@@ -4912,9 +4914,9 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
+
+   
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-4.jpg" alt="Case 4">
@@ -4925,9 +4927,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-5.jpg" alt="Case 5">
@@ -4938,9 +4938,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
-
-    <div class="mm-grid">
+ 
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-6.jpg" alt="Case 6">
@@ -4951,9 +4949,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-7.jpg" alt="Case 7">
@@ -4964,9 +4960,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-8.jpg" alt="Case 8">
@@ -4977,9 +4971,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-9.jpg" alt="Case 9">
@@ -4990,9 +4982,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
-
-    <div class="mm-grid">
+   
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-10.jpg" alt="Case 10">
@@ -5003,9 +4993,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-11.jpg" alt="Case 11">
@@ -5016,9 +5004,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
-
-    <div class="mm-grid">
+  
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-12.jpg" alt="Case 12">
@@ -5029,9 +5015,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
-
-    <div class="mm-grid">
+ 
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-13.jpg" alt="Case 13">
@@ -5042,10 +5026,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-14.jpg" alt="Case 14">
@@ -5056,9 +5037,7 @@ function showDesignCase(caseId) {
             <p>Creative Management</p>
         </div>
     </div>
-    </div>
 
-    <div class="mm-grid">
     <div class="mm-card">
         <div class="mm-card-image">
             <img src="img/mm-15.jpg" alt="Case 15">
