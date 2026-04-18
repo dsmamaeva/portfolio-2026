@@ -2678,6 +2678,25 @@
     color: #888;
     line-height: 1.4;
 }
+
+
+
+
+    /* Убираем лишний отступ сверху у заголовка */
+.experience-column .section-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Если контейнер всей секции имеет слишком большой padding, его тоже можно поджать */
+.section-padding {
+    padding-top: 40px; /* Настрой это значение под себя (было, скорее всего, 60-80px) */
+}
+
+/* Чтобы заголовки в обеих колонках стояли идеально на одной линии */
+.container-split {
+    align-items: flex-start;
+}
 </style>
 
 <script>
