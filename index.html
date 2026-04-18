@@ -459,7 +459,175 @@
         @media (max-width: 900px) {
             .resume-container { grid-template-columns: 1fr; }
         }
+
+
+
+
+        .case-study-section {
+        background-color: var(--bg-cream);
+        padding: 80px 0;
+        border-top: 1px solid rgba(139, 26, 26, 0.1);
+    }
+
+    .case-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .case-category {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        color: var(--accent-red);
+        font-weight: 600;
+    }
+
+    .case-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin: 15px 0;
+    }
+
+    .case-subtitle {
+        font-style: italic;
+        color: #666;
+    }
+
+    /* Инфографика процесса */
+    .process-infographic {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 80px;
+        gap: 20px;
+    }
+
+    .process-step {
+        flex: 1;
+        text-align: center;
+    }
+
+    .step-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: rgba(139, 26, 26, 0.1);
+        margin-bottom: -20px;
+    }
+
+    .step-content h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+    }
+
+    .step-content p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .process-divider {
+        width: 1px;
+        height: 100px;
+        background-color: rgba(139, 26, 26, 0.2);
+        margin-top: 40px;
+    }
+
+    /* Сетка деталей */
+    .case-details-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 60px;
+        border-top: 1px solid #eee;
+        padding-top: 40px;
+    }
+
+    .detail-block {
+        margin-bottom: 30px;
+    }
+
+    .detail-block h4 {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--accent-red);
+        margin-bottom: 10px;
+    }
+
+    .case-link {
+        display: inline-block;
+        margin-top: 20px;
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px solid var(--accent-red);
+        transition: 0.3s;
+    }
+
+    .case-link:hover {
+        color: var(--accent-red);
+    }
+
+    /* Стек */
+    .stack-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .stack-tags span {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+    }
+
+    .results-badge {
+        background-color: var(--text-dark);
+        color: white;
+        padding: 30px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+
+    .result-item {
+        text-align: center;
+    }
+
+    .result-value {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--accent-red);
+    }
+
+    .result-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .process-infographic {
+            flex-direction: column;
+            align-items: center;
+        }
+        .process-divider {
+            height: 1px;
+            width: 50px;
+            margin: 20px 0;
+        }
+        .case-details-grid {
+            grid-template-columns: 1fr;
+        }
+    }
     </style>
+
+
+    
 </head>
 
 
@@ -4508,7 +4676,77 @@ function showDesignCase(caseId) {
         'b2b-site': `
             <div style="max-width: 1100px; margin: 0 auto;"> <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 30px; text-align: center; font-size: 2rem;">Сайт для B2B сегмента</h2>
                 <div style="font-size: 1.1rem; color: #333;">
-                    <p>Проектирование пользовательских сценариев и визуальной концепции для корпоративного сектора. Фокус на чистоту интерфейса, логику навигации и построение воронки через контент.</p>
+                    <section class="case-study-section">
+    <div class="container">
+        <div class="case-header">
+            <span class="case-category">B2B Case Study</span>
+            <h2 class="case-title">LVT: AI-Driven Web Development</h2>
+            <p class="case-subtitle">Трансформация промышленного B2B-бренда через современные AI-инструменты</p>
+        </div>
+
+        <div class="process-infographic">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Анализ & Архитектура</h3>
+                    <p>Аудит конкурентов и проектирование карты сайта в Figma для сложного промышленного сегмента.</p>
+                </div>
+            </div>
+            <div class="process-divider"></div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>AI Generation</h3>
+                    <p>Конвертация дизайна в код через CodiaAI и кастомизация логики в связке с Google AI.</p>
+                </div>
+            </div>
+            <div class="process-divider"></div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Optimization</h3>
+                    <p>Доработка адаптивности и промпт-инжиниринг через Perplexity Pro для идеального UX.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-details-grid">
+            <div class="case-description">
+                <div class="detail-block">
+                    <h4>Задача</h4>
+                    <p>Заменить устаревший конструкторский сайт на высокотехнологичный лендинг, отвечающий запросам крупных B2B-заказчиков.</p>
+                </div>
+                <div class="detail-block">
+                    <h4>Решение</h4>
+                    <p>Использование AI-стека позволило реализовать функционал уровня профессиональной студии силами одного специалиста, сократив цикл разработки на 60%.</p>
+                </div>
+                <a href="https://dsmamaeva.github.io/lvt_test/index.html" target="_blank" class="case-link">Смотреть Live Demo →</a>
+            </div>
+
+            <div class="case-stack">
+                <h4>Tech Stack</h4>
+                <div class="stack-tags">
+                    <span>Google Gemini (Advanced)</span>
+                    <span>Perplexity Pro</span>
+                    <span>CodiaAI</span>
+                    <span>Figma</span>
+                    <span>GitHub Pages</span>
+                </div>
+                
+                <div class="results-badge">
+                    <div class="result-item">
+                        <span class="result-value">100%</span>
+                        <span class="result-label">Adaptive</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">Clean</span>
+                        <span class="result-label">Code Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
                     </div>
             </div>
         `,
