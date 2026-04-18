@@ -762,7 +762,9 @@
             </section>
             </section>
 
-    
+
+            <section class="timeline-section">
+                <div class="container timeline-container">
 <div class="visual-timeline">
     <div class="timeline-grid">
         <div class="grid-header">
@@ -794,6 +796,8 @@
         </div>
     </div>
 </div>
+                    </div>
+
 
 
 
@@ -801,6 +805,8 @@
     <span class="summary-total">Общий стаж: ~3 года и 8 месяцев</span>
     <p class="summary-note">* расчет произведен с учетом исключения пересекающихся периодов (чистое календарное время)</p>
 </div>
+
+                </section>
 
 <section id="portfolio" class="reveal">
     <h2>Портфолио</h2>
@@ -2577,21 +2583,38 @@
 
 
 
-
-    .visual-timeline {
-    width: 100%;
-    overflow-x: auto;
-    padding: 30px 0;
-    margin-bottom: 40px;
-    /* Тонкая настройка скроллбара, чтобы не портил эстетику */
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-red) transparent;
+.timeline-section {
+    padding: 60px 0;
+    background-color: transparent; /* Или чуть другой оттенок, если хочешь выделить */
 }
 
+/* Контейнер с ограничением ширины и центрированием */
+.timeline-container {
+    max-width: 1100px; /* Ограничиваем, чтобы не растягивался на весь экран */
+    margin: 0 auto;
+    padding: 0 40px; /* Отступы по бокам внутри контейнера */
+}
+.visual-timeline {
+    width: 100%;
+    overflow-x: auto; /* Позволяет скроллить на маленьких экранах */
+    padding: 40px 0;
+    scrollbar-width: none; /* Скрываем скроллбар для эстетики */
+}
+
+    .visual-timeline::-webkit-scrollbar {
+    display: none; /* Для Chrome/Safari */
+}
+
+/* Убеждаемся, что сетка внутри не сжимается меньше 900px */
 .timeline-grid {
-    display: flex;
-    flex-direction: column;
-    min-width: 900px; /* Фиксируем ширину для корректного отображения месяцев */
+    min-width: 900px; 
+}
+
+    .experience-summary {
+    margin-top: 20px;
+    padding-left: 0;
+    border-left: 2px solid var(--accent-red);
+    padding-left: 20px;
 }
 
 .grid-header {
@@ -2654,13 +2677,7 @@
 }
 
 
-    .experience-summary {
-    margin-top: -15px; /* Подтягиваем ближе к графику */
-    margin-bottom: 40px;
-    padding-left: 5px;
-    border-left: 2px solid var(--accent-red); /* Тонкий акцент слева */
-    padding-left: 15px;
-}
+
 
 .summary-total {
     display: block;
