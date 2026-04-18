@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Да рья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -2065,10 +2065,11 @@
 }
 
 .exp-modal-content {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 40px 20px;
-    position: relative;
+    max-width: 1000px; /* Чуть шире для размаха линий */
+    margin: 60px auto;
+    padding: 60px 40px;
+    display: flex; /* Заголовок слева, контент справа */
+    gap: 50px;
 }
 
 .exp-close {
@@ -2082,51 +2083,58 @@
 
 .exp-main-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #8b1a1a;
-    margin-bottom: 60px;
-    text-align: center;
+    font-size: 4rem;
+    color: var(--accent-red);
+    writing-mode: vertical-lr; /* Заголовок вертикально, если как на некоторых макетах, или просто left-align */
+    transform: rotate(180deg);
+    text-align: right;
+    margin: 0;
+    line-height: 1;
 }
 
 .exp-lines-grid {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 60px;
+    margin-top: 20px;
 }
 
 .exp-item {
     position: relative;
-    padding-left: 80px;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideInLine 0.6s forwards ease-out;
+    padding-left: 0; /* Убираем стандартный отступ */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Красная линия с точкой из макета */
 .red-graphic-line {
-    position: absolute;
-    left: 0;
-    top: 14px;
-    width: 60px;
-    height: 1.5px;
-    background-color: #8b1a1a;
+    position: relative;
+    width: 100%; /* Линия на всю ширину контейнера */
+    height: 1px;
+    background-color: var(--accent-red);
+    margin-bottom: 15px;
 }
 
 .red-graphic-line::before {
     content: '';
     position: absolute;
-    left: -4px;
+    left: 0;
     top: -3px;
-    width: 8px;
-    height: 8px;
-    background-color: #8b1a1a;
+    width: 7px;
+    height: 7px;
+    background-color: var(--accent-red);
     border-radius: 50%;
 }
+    .exp-item:nth-child(1) .red-graphic-line { width: 80%; }
+.exp-item:nth-child(2) .red-graphic-line { width: 100%; }
+.exp-item:nth-child(3) .red-graphic-line { width: 60%; }
 
 .exp-item p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
-    line-height: 1.7;
-    color: #1a1a1a;
+    line-height: 1.6;
+    max-width: 500px; /* Чтобы текст не растягивался на всю длину линии */
+    align-self: flex-start;
     font-weight: 300;
 }
 
@@ -3666,28 +3674,25 @@ window.addEventListener('click', function(event) {
 
 
 <div id="exp-details-modal" class="exp-modal">
+    <span class="exp-close" onclick="closeExpModal()" style="position:fixed; right:40px; top:20px;">&times;</span>
+
     <div class="exp-modal-content">
-        <span class="exp-close" onclick="closeExpModal()">&times;</span>
+        <h2 class="exp-main-title">РБК</h2>
         
-        <div class="exp-visual-container">
-            <h2 class="exp-main-title">РБК</h2>
-            <div class="exp-lines-grid">
-                
-                <div class="exp-item">
-                    <div class="red-graphic-line"></div>
-                    <p>Координирование проекта «Бизнес-день в Казани 2026». Обеспечение коммуникации с участниками и привлечение пула технологических и бизнес-партнеров.</p>
-                </div>
-                
-                <div class="exp-item">
-                    <div class="red-graphic-line"></div>
-                    <p>Глубокое исследование экосистемы холдинга РБК для разработки модели регионального развития и создания совместных медиапродуктов.</p>
-                </div>
-                
-                <div class="exp-item">
-                    <div class="red-graphic-line"></div>
-                    <p>Подготовка экспертных материалов и рерайт сложных новостных сводок на основе анализа первичной документации и данных мониторинга инфополя.</p>
-                </div>
-                
+        <div class="exp-lines-grid">
+            <div class="exp-item">
+                <div class="red-graphic-line"></div>
+                <p>Координирование проекта «Бизнес-день в Казани 2026». Обеспечение коммуникации с участниками и привлечение пула технологических и бизнес-партнеров.</p>
+            </div>
+            
+            <div class="exp-item">
+                <div class="red-graphic-line"></div>
+                <p>Глубокое исследование экосистемы холдинга РБК для разработки модели регионального развития и создания совместных медиапродуктов.</p>
+            </div>
+            
+            <div class="exp-item">
+                <div class="red-graphic-line"></div>
+                <p>Подготовка экспертных материалов и рерайт сложных новостных сводок на основе анализа первичной документации и данных мониторинга инфополя.</p>
             </div>
         </div>
     </div>
