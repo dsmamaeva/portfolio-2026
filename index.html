@@ -496,86 +496,56 @@
         <a href="#contact">Контакты</a>
     </nav>
 
-    <section id="about" class="reveal">
-        <h2>Профессиональный путь</h2>
-        
-        <div class="resume-container">
-            <div class="resume-column">
-                <h3>Опыт работы</h3>
-                
-                <div class="experience-box">
-                    <span class="exp-year">2024 — 2025</span>
-                    <span class="exp-company">Meet Market</span>
-                    <span class="exp-role">Креативный менеджер</span>
-                    <ul>
-                        <li>Адаптация стратегии, создание контента</li>
-                    </ul>
-                </div>
 
-                <div class="experience-box">
-                    <span class="exp-year">2024 — 2025</span>
-                    <span class="exp-company">Manerate</span>
-                    <span class="exp-role">Копирайтер</span>
-                    <ul>
-                        <li>Тексты для ресторанных проектов</li>
-                    </ul>
-                </div>
 
-                <div class="experience-box">
-                    <span class="exp-year">2024</span>
-                    <span class="exp-company">Комсомольская правда</span>
-                    <span class="exp-role">Администратор tg-канала</span>
-                </div>
-                
-                <div class="experience-box">
-                    <span class="exp-year">2024</span>
-                    <span class="exp-company">Neva Today</span>
-                    <span class="exp-role">Журналист-новостник</span>
-                </div>
 
-                <div class="experience-box">
-                    <span class="exp-year">2023</span>
-                    <span class="exp-company">Администрация Пушкинского р-на</span>
-                    <span class="exp-role">Сектор информации</span>
-                </div>
+<section class="professional-path-section">
+    <h2 class="mag-title" style="text-align: center; margin-bottom: 60px;">Professional Path</h2>
+    
+    <div class="path-container">
+        <div class="path-line-svg"></div>
+
+        <div class="path-step left">
+            <div class="path-content">
+                <span class="path-years mono-text">2026 — н.в.</span>
+                <h4 class="path-company serif">РБК</h4>
+                <p class="path-position">Организатор Business Day / Магистр</p>
             </div>
+            <button class="path-circle" onclick="openPathDetails(1)">подробнее</button>
+        </div>
 
-            <div class="resume-column">
-                <h3>Стажировки</h3>
-
-                <div class="experience-box">
-                    <span class="exp-year">2026</span>
-                    <span class="exp-company">РБК</span>
-                    <ul>
-                        <li>Бизнес-день в Казани</li>
-                    </ul>
-                </div>
-
-                <div class="experience-box">
-                    <span class="exp-year">2025</span>
-                    <span class="exp-company">Simple Wine</span>
-                    <ul>
-                        <li>Event-механики</li>
-                    </ul>
-                </div>
-
-                <div class="experience-box">
-                    <span class="exp-year">2023</span>
-                    <span class="exp-company">Телеканал 78</span>
-                    <ul>
-                        <li>Съемки и расшифровки</li>
-                    </ul>
-                </div>
-
-                <div class="experience-box">
-                    <span class="exp-year">2022</span>
-                    <span class="exp-company">Авторадио СПб</span>
-                    <ul>
-                        <li>Монтаж и интервью</li>
-                    </ul>
-                </div>
+        <div class="path-step right">
+            <button class="path-circle" onclick="openPathDetails(2)">подробнее</button>
+            <div class="path-content">
+                <span class="path-years mono-text">2024 — 2025</span>
+                <h4 class="path-company serif">Комсомольская правда</h4>
+                <p class="path-position">Редактор Telegram-канала</p>
             </div>
         </div>
+
+        <div class="path-step left">
+            <div class="path-content">
+                <span class="path-years mono-text">2020 — 2024</span>
+                <h4 class="path-company serif">ЛГУ им. Пушкина</h4>
+                <p class="path-position">Журналистика (Бакалавр)</p>
+            </div>
+            <button class="path-circle" onclick="openPathDetails(3)">подробнее</button>
+        </div>
+
+        <div class="path-step right">
+            <button class="path-circle" onclick="openPathDetails(4)">подробнее</button>
+            <div class="path-content">
+                <span class="path-years mono-text">20XX — 20XX</span>
+                <h4 class="path-company serif">Название компании</h4>
+                <p class="path-position">Должность</p>
+            </div>
+        </div>
+
+        </div>
+</section>
+
+    
+
 
         <div class="resume-action">
             <a href="https://drive.google.com/file/d/1mBSMP8ZKCt3BIeTKv2RhxmzAuBVMblDY/view?usp=sharing" target="_blank" class="btn-full-cv">
@@ -1777,6 +1747,110 @@
 @media (max-width: 900px) {
     .blog-hero { grid-template-columns: 1fr; }
     .blog-grid-row { flex-direction: column; }
+}
+
+
+    .professional-path-section {
+    padding: 100px 20px;
+    background: var(--bg-cream);
+    overflow: hidden;
+}
+
+.path-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Вертикальная направляющая линия */
+.path-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--accent-red);
+    transform: translateX(-50%);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.path-step {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Чередование сторон */
+.path-step.left { justify-content: flex-end; padding-right: 50%; }
+.path-step.right { justify-content: flex-start; padding-left: 50%; }
+
+/* Круг-кнопка */
+.path-circle {
+    width: 100px;
+    height: 100px;
+    background: var(--accent-red);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 20px rgba(139, 26, 26, 0.2);
+}
+
+.path-circle:hover {
+    transform: translateX(-50%) scale(1.15);
+    background: #000; /* Черный при наведении для акцента */
+}
+
+/* Текстовые блоки */
+.path-content {
+    max-width: 300px;
+    padding: 0 40px;
+}
+
+.path-step.left .path-content { text-align: right; }
+.path-step.right .path-content { text-align: left; }
+
+.path-years {
+    font-size: 0.8rem;
+    color: var(--accent-red);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.path-company {
+    font-size: 1.4rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.path-position {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+    .path-container::before { left: 30px; }
+    .path-step { justify-content: flex-start !important; padding-left: 80px !important; padding-right: 0 !important; }
+    .path-circle { left: 30px; transform: translateX(-50%); width: 60px; height: 60px; font-size: 0.5rem; }
+    .path-content { text-align: left !important; padding: 0; }
 }
 </style>
 
@@ -3229,6 +3303,12 @@ const videoCases = {
 };
 
 
+
+    function openPathDetails(stepId) {
+    console.log("Открываем детали для этапа:", stepId);
+    // Здесь мы позже настроим всплывающие окна или переход к кейсам
+    alert("Детали этапа " + stepId + " будут настроены позже.");
+}
     
 </script>
 
