@@ -1912,14 +1912,13 @@
 /* 4. Общий класс для каждой строки (ноды) */
 .path-node {
     position: absolute;
-    top: var(--top-pos, 0); 
+    top: var(--top-pos, 0);
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     z-index: 2;
-    min-height: 10px; 
-}
+    min-height: 10px;
 
 /* 5. Универсальный круг (размер тянется из HTML) */
 .node-circle {
@@ -2075,6 +2074,17 @@
 .main-path {
     flex: 2; /* Занимает 2/3 места */
     position: relative;
+}
+
+    /* ДОБАВЬ ЭТО: Контейнер игнорирует клики, они проходят сквозь него */
+    pointer-events: none; 
+}
+
+/* Элементы внутри ноды: возвращаем им кликабельность */
+.node-circle, 
+.node-content {
+    /* ДОБАВЬ ЭТО: Кнопка и текст снова реагируют на мышь */
+    pointer-events: auto; 
 }
 
 /* Сохраняем все стили .path-wrapper, .node-circle, .path-svg из предыдущего ответа */
