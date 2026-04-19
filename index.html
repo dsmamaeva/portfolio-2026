@@ -3,18 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева. | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
-        :root {
-    --bg-cream: #fdfaf5;
-    --accent-red: #8b1a1a;
-    --text-dark: #1a1a1a;
-    /* Улучшенная плавная анимация */
-    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --mm-grid-gap: 40px; /* Увеличили зазоры для "воздуха" */
+       :root {
+--bg-cream: #F5F2ED; /* Более мягкий оттенок с фото */
+    --text-dark: #1A1A1A;
+    --accent-red: #8B1A1A;
+    --border-radius: 30px; /* Скругление как на референсе */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
 }
 
+        .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    height: 90vh;
+    padding: 20px;
+    align-items: center;
+}
+
+        .hero-image-vibe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius); /* Те самые скругленные края */
+}
+
+        .hero-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+        .nav-item-large {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+    transition: var(--transition);
+}
+
+.nav-item-large span {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--accent-red);
+}
+
+.nav-item-large:hover {
+    padding-left: 20px;
+    color: var(--accent-red);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .nav-item-large {
+        font-size: 1.8rem;
+    }
+}
         * {
             margin: 0;
             padding: 0;
@@ -152,107 +210,8 @@
     .case-grid { grid-template-columns: 1fr; }
 }
 
-.hero-text-container {
-    flex: 1.2; 
-    padding: 0 5% 0 8%;
-}
 
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem); /* Адаптивный размер */
-            color: var(--accent-red);
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 20px;
-        }
 
-        .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--text-dark);
-            letter-spacing: 1px;
-            margin-bottom: 40px;
-        }
-
-        /* Контейнер для фото (справа) */
-.hero-image-container {
-    flex: 0.8;
-    height: 90vh; /* Чуть короче экрана для эффекта паспарту */
-    margin-right: 40px;
-    position: relative;
-    filter: sepia(15%) contrast(105%); /* Легкий винтажный фильтр */
-    transition: var(--transition);
-}
-        .hero-image-container:hover {
-    filter: sepia(0%) contrast(110%); /* Оживает при наведении */
-}
-
-        .hero-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Фото заполняет контейнер, не искажаясь */
-            object-position: center; /* Центрирование фото */
-            /* Эффект легкого тонирования в цвет фона для гармонии */
-            filter: sepia(20%) contrast(110%); 
-        }
-
-        /* Декоративный элемент в стиле референсов (тонкая линия) */
-        .hero-image-container::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid rgba(253, 250, 245, 0.5); /* Кремовая рамка поверх фото */
-            z-index: 1;
-        }
-
-        /* Адаптация для мобильных устройств */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column-reverse; /* Фото сверху, текст снизу */
-                text-align: center;
-            }
-            .hero-text-container {
-                padding: 40px 20px;
-                flex: none;
-                height: 50%;
-            }
-            .hero-image-container {
-                flex: none;
-                height: 50%;
-                width: 100%;
-            }
-            .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3.5rem, 10vw, 7.5rem); /* Еще крупнее и акцентнее */
-    color: var(--accent-red);
-    text-transform: uppercase;
-    line-height: 0.85;
-    margin-bottom: 30px;
-    letter-spacing: -2px;
-}
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 10vw, 6rem);
-            color: var(--accent-red);
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 20px;
-        }
-
-.hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    border-left: 2px solid var(--accent-red);
-    padding-left: 20px;
-    max-width: 500px;
-}
 
         .marquee {
             background: var(--accent-red);
@@ -659,18 +618,31 @@
 <body>
 
 <header>
-    <div class="hero-text-container">
-        <div class="hero-title">Дарья<br>Мамаева</div>
-        <p class="hero-subtitle">Медиаменеджер & Журналист</p>
-        
-        <div class="hero-cta-wrapper">
-            <a href="#portfolio" class="btn-main">Смотреть работы</a>
+<section id="home" style="padding: 20px;">
+    <div class="hero-container">
+        <div style="height: 100%;">
+            <img src="your-photo.jpg" alt="Дарья Мамаева" class="hero-image-vibe">
+        </div>
+
+        <div class="hero-nav">
+            <a href="#about" class="nav-item-large">
+                <span>01.</span> Обо мне
+            </a>
+            <a href="#education" class="nav-item-large">
+                <span>02.</span> Образование
+            </a>
+            <a href="#contact" class="nav-item-large">
+                <span>03.</span> Контакты
+            </a>
+            <a href="#experience" class="nav-item-large">
+                <span>04.</span> Профессиональный путь
+            </a>
+            <a href="#portfolio" class="nav-item-large">
+                <span>05.</span> Портфолио
+            </a>
         </div>
     </div>
-    
-    <div class="hero-image-container">
-        <img src="IMG_0742.jpg" alt="Дарья Мамаева" class="hero-photo">
-    </div>
+</section>
 </header>
 
     <div class="marquee">
