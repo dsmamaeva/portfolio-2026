@@ -1217,23 +1217,45 @@
 
         <hr class="separator">
 
-        <div class="media-case-container alternate">
-            <div class="media-case-info">
-                <span class="tag">Business Media</span>
-                <h4>РБК: Масштабирование бизнес-экосистемы</h4>
-                <p>Работа с региональной дистрибуцией и охватом материалов более чем на 70 000 уникальных пользователей.</p>
-            </div>
-            <div class="media-case-mini-stats">
-                <div class="mini-stat-card">
-                    <span class="stat-num">70K+</span>
-                    <span class="stat-label">Просмотров</span>
-                </div>
-                <div class="mini-stat-card">
-                    <span class="stat-num">100+</span>
-                    <span class="stat-label">Партнеров</span>
-                </div>
-            </div>
+<div class="media-case-container alternate">
+    <div class="media-case-info">
+        <div class="case-header">
+            <span class="tag">Business Media & Events</span>
+            <span class="location-tag">Казань • СПб • Регионы</span>
         </div>
+        
+        <h4>РБК: Экосистема межрегиональных бизнес-коммуникаций</h4>
+        
+        <p class="case-description">
+            Масштабирование федерального проекта <strong>«Бизнес-день РБК»</strong>. Сопряжение интересов власти и крупного бизнеса (девелопмент, IT, промышленность) через создание экспертных площадок и дистрибуцию контента.
+        </p>
+
+        <ul class="case-highlights">
+            <li><strong>Kairos-планирование:</strong> Полный цикл подготовки деловых программ (Девелопмент, Кадровый голод, Эффективность бизнеса).</li>
+            <li><strong>Networking:</strong> Формирование пула из 100+ топ-спикеров и стейкхолдеров (Минстрой РТ, АИР РТ, федеральные застройщики).</li>
+            <li><strong>Media Coverage:</strong> Создание аналитического контента для РБК Татарстан и РБК Петербург.</li>
+        </ul>
+    </div>
+
+    <div class="media-case-mini-stats">
+        <div class="mini-stat-card">
+            <div class="stat-icon">📈</div>
+            <span class="stat-num">70K+</span>
+            <span class="stat-label">Уникальных охватов</span>
+        </div>
+        <div class="mini-stat-card">
+            <div class="stat-icon">🤝</div>
+            <span class="stat-num">100+</span>
+            <span class="stat-label">Топ-спикеров в базе</span>
+        </div>
+        <div class="mini-stat-card highlight">
+            <div class="stat-icon">🌍</div>
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Регионов-партнеров</span>
+        </div>
+    </div>
+</div>
+        
     </div>
 </div>
 
@@ -3759,6 +3781,37 @@
     .media-case-container {
         grid-template-columns: 1fr;
     }
+}
+
+
+
+    .location-tag {
+  font-size: 0.75rem;         /* Уменьшенный шрифт */
+  color: #6c757d;             /* Нейтральный серый цвет */
+  text-transform: uppercase;  /* Верхний регистр */
+  letter-spacing: 0.05em;     /* Небольшой разрядка для читаемости */
+  font-weight: 500;           /* Средняя жирность для четкости */
+}
+
+    .case-highlights {
+  list-style: none;           /* Убираем стандартные точки */
+  padding-left: 1.25rem;      /* Отступ слева для иерархии */
+  margin: 0.5rem 0;
+}
+
+.case-highlights li {
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+/* Кастомный акцентный маркер */
+.case-highlights li::before {
+  content: "•";               /* Символ маркера */
+  color: #007bff;             /* Ваш акцентный цвет */
+  font-weight: bold;
+  position: absolute;
+  left: -1.25rem;             /* Размещаем маркер в области отступа */
+  width: 1rem;
 }
 </style>
 
