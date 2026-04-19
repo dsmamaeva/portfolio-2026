@@ -796,7 +796,7 @@ body {
 
 <section class="experience-layout">
     <div class="container-split">
-   
+        
 <aside class="side-panel">
     <div class="info-block" id="about">
                 <span class="mono-label">Обо мне</span>
@@ -821,7 +821,6 @@ body {
         </ul>
     </div>
 </div>
-    </div>
 
             <div class="info-block" id="education"> <span class="mono-label">Образование</span>
     <ul class="education-list">
@@ -852,10 +851,9 @@ body {
     <div class="container">
         
         <div class="experience-column">
-               <div class="experience-timeline">
             
 <span class="mono-label">Профессиональный путь</span>
-     
+        <div class="experience-timeline">
 <div class="exp-item">
     <div class="exp-header">
         <span class="period">декабрь 2025 — апрель 2026</span>
@@ -2923,11 +2921,8 @@ body {
     letter-spacing: 2px;           /* Разреженный интервал */
     color: var(--accent-red);      /* Или #888, если хотите более спокойный вариант */
     display: block;
+    margin-bottom: 20px;           /* Отступ до контента под заголовком */
     font-weight: 700;
-
-    margin-top: 0 !important;
-    line-height: 1; /* Чтобы высота строки не добавляла лишних пикселей сверху */
-    margin-bottom: 25px;
 }
 
     .experience-timeline .mono-label {
@@ -2979,18 +2974,7 @@ body {
 }
 
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 60px;
-    align-items: start; /* Важно: выравнивает колонки по верхнему краю */
-    padding-top: 40px;  /* Одинаковый отступ для всего блока */
-}
 
-    .side-panel, .experience-timeline {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-}
 
 /* 1. Основной фон-подложка */
 .exp-modal {
