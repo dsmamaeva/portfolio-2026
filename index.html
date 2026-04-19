@@ -152,107 +152,99 @@
     .case-grid { grid-template-columns: 1fr; }
 }
 
-.hero-text-container {
-    flex: 1.2; 
-    padding: 0 5% 0 8%;
-}
 
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem); /* Адаптивный размер */
-            color: var(--accent-red);
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--text-dark);
-            letter-spacing: 1px;
-            margin-bottom: 40px;
-        }
-
-        /* Контейнер для фото (справа) */
-.hero-image-container {
-    flex: 0.8;
-    height: 90vh; /* Чуть короче экрана для эффекта паспарту */
-    margin-right: 40px;
-    position: relative;
-    filter: sepia(15%) contrast(105%); /* Легкий винтажный фильтр */
-    transition: var(--transition);
-}
-        .hero-image-container:hover {
-    filter: sepia(0%) contrast(110%); /* Оживает при наведении */
-}
-
-        .hero-photo {
+        
+.hero-card {
+            background-color: var(--bg-color);
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Фото заполняет контейнер, не искажаясь */
-            object-position: center; /* Центрирование фото */
-            /* Эффект легкого тонирования в цвет фона для гармонии */
-            filter: sepia(20%) contrast(110%); 
+            max-width: 1200px;
+            min-height: 600px;
+            border-radius: 40px; /* Закругленные края как на фото */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 60px;
+            color: var(--text-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* Декоративный элемент в стиле референсов (тонкая линия) */
-        .hero-image-container::before {
-            content: '';
+        /* Эффект шума/зернистости */
+        .hero-card::before {
+            content: "";
             position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid rgba(253, 250, 245, 0.5); /* Кремовая рамка поверх фото */
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Секция с фото */
+        .photo-side {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
             z-index: 1;
         }
 
-        /* Адаптация для мобильных устройств */
+        .photo-side img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%) contrast(110%); /* ЧБ эффект */
+            mix-blend-mode: screen;
+        }
+
+        /* Секция с навигацией */
+        .nav-side {
+            flex: 1;
+            min-width: 350px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-content: center;
+            z-index: 2;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: opacity 0.3s;
+        }
+
+        .nav-item:hover {
+            opacity: 0.7;
+        }
+
+        .nav-number-title {
+            font-family: var(--accent-font);
+            font-style: italic;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            text-transform: lowercase;
+            opacity: 0.6;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .nav-description {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Адаптивность для мобилок */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column-reverse; /* Фото сверху, текст снизу */
-                text-align: center;
-            }
-            .hero-text-container {
-                padding: 40px 20px;
-                flex: none;
-                height: 50%;
-            }
-            .hero-image-container {
-                flex: none;
-                height: 50%;
-                width: 100%;
-            }
-            .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3.5rem, 10vw, 7.5rem); /* Еще крупнее и акцентнее */
-    color: var(--accent-red);
-    text-transform: uppercase;
-    line-height: 0.85;
-    margin-bottom: 30px;
-    letter-spacing: -2px;
-}
+            .hero-card { padding: 30px; border-radius: 20px; }
+            .nav-side { grid-template-columns: 1fr; }
+            .photo-side { order: 2; margin-top: 40px; }
         }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 10vw, 6rem);
-            color: var(--accent-red);
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 20px;
-        }
-
-.hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    border-left: 2px solid var(--accent-red);
-    padding-left: 20px;
-    max-width: 500px;
-}
 
         .marquee {
             background: var(--accent-red);
@@ -659,18 +651,49 @@
 <body>
 
 <header>
-    <div class="hero-text-container">
-        <div class="hero-title">Дарья<br>Мамаева</div>
-        <p class="hero-subtitle">Медиаменеджер & Журналист</p>
-        
-        <div class="hero-cta-wrapper">
-            <a href="#portfolio" class="btn-main">Смотреть работы</a>
+<div class="hero-card">
+        <div class="photo-side">
+            <img src="https://via.placeholder.com/500x600/000000/FFFFFF?text=YOUR+PHOTO" alt="Profile Photo">
+        </div>
+
+        <div class="nav-side">
+            
+            <a href="#about" class="nav-item">
+                <span class="nav-number-title">01. обо мне</span>
+                <span class="nav-label">[личное]</span>
+                <div class="nav-description">Кто я и чем дышу</div>
+            </a>
+
+            <a href="#education" class="nav-item">
+                <span class="nav-number-title">02. обучение</span>
+                <span class="nav-label">[академическое]</span>
+                <div class="nav-description">Университеты и курсы</div>
+            </a>
+
+            <a href="#contacts" class="nav-item">
+                <span class="nav-number-title">03. контакты</span>
+                <span class="nav-label">[связь]</span>
+                <div class="nav-description">Написать мне письмо</div>
+            </a>
+
+            <a href="#career" class="nav-item">
+                <span class="nav-number-title">04. путь</span>
+                <span class="nav-label">[профессиональное]</span>
+                <div class="nav-description">Опыт работы</div>
+            </a>
+
+            <a href="#portfolio" class="nav-item" style="grid-column: span 2;">
+                <span class="nav-number-title">05. портфолио</span>
+                <span class="nav-label">[кейсы]</span>
+                <div class="nav-description">Избранные проекты</div>
+            </a>
+
         </div>
     </div>
-    
-    <div class="hero-image-container">
-        <img src="IMG_0742.jpg" alt="Дарья Мамаева" class="hero-photo">
-    </div>
+
+    <div id="about" style="height: 100vh; padding: 50px;"><h2>Секция: Обо мне</h2></div>
+    <div id="education" style="height: 100vh; padding: 50px;"><h2>Секция: Образование</h2></div>
+
 </header>
 
     <div class="marquee">
