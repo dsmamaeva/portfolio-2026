@@ -237,6 +237,10 @@ body {
     position: relative;
     overflow: hidden;
 }
+        .nav-item:active {
+    transform: scale(0.95); /* Кнопка слегка сжимается при клике, как настоящая */
+    transition: 0.1s;
+}
 
 .nav-number {
     font-family: var(--font-numbers);
@@ -741,37 +745,37 @@ body {
             <img src="глав.png" alt="Дарья Мамаева">
         </div>
 
-        <nav class="hero-nav">
-            <div class="user-profile">
-                <h1 class="user-name">Дарья Мамаева</h1>
-                <p class="user-role">PR-менеджер, Специалист по связям с общественностью</p>
-            </div>
+<nav class="hero-nav">
+    <div class="user-profile">
+        <h1 class="user-name">Дарья Мамаева</h1>
+        <p class="user-role">PR-менеджер, Специалист по связям с общественностью</p>
+    </div>
 
-            <a href="#about" class="nav-item">
-                <span class="nav-number">01.</span>
-                <div class="nav-name">Обо мне</div>
-            </a>
+    <a href="#about" class="nav-item">
+        <span class="nav-number">01.</span>
+        <div class="nav-name">Обо мне</div>
+    </a>
 
-            <a href="#education" class="nav-item">
-                <span class="nav-number">02.</span>
-                <div class="nav-name">Образование</div>
-            </a>
+    <a href="#education" class="nav-item">
+        <span class="nav-number">02.</span>
+        <div class="nav-name">Образование</div>
+    </a>
 
-            <a href="#contacts" class="nav-item">
-                <span class="nav-number">03.</span>
-                <div class="nav-name">Контакты</div>
-            </a>
+    <a href="#contact" class="nav-item">
+        <span class="nav-number">03.</span>
+        <div class="nav-name">Контакты</div>
+    </a>
 
-            <a href="#career" class="nav-item">
-                <span class="nav-number">04.</span>
-                <div class="nav-name">Опыт</div>
-            </a>
+    <a href="#experience" class="nav-item">
+        <span class="nav-number">04.</span>
+        <div class="nav-name">Опыт</div>
+    </a>
 
-            <a href="#portfolio" class="nav-item">
-                <span class="nav-number">05.</span>
-                <div class="nav-name">Портфолио</div>
-            </a>
-        </nav>
+    <a href="#portfolio" class="nav-item">
+        <span class="nav-number">05.</span>
+        <div class="nav-name">Портфолио</div>
+    </a>
+</nav>
 
     </div>
 </section>
