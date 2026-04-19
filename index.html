@@ -167,11 +167,22 @@ body {
     min-height: 85vh;
 }
 
+.hero-section {
+    max-width: none !important; 
+    margin: 0 !important;
+    padding: 0 !important; /* Убирает те самые 80px сверху и 40px по бокам */
+    width: 100%;
+    background-color: var(--bg-cream);
+    overflow: hidden;
+    display: flex;
+}
+
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     width: 100%;
-    padding: 0 !important; /* Гарантированно убираем воздух */
+    margin: 0;
+    padding: 0;
     gap: 0;
 }
 
@@ -255,7 +266,7 @@ body {
 .hero-photo {
     margin: 0;
     padding: 0;
-    line-height: 0;
+    line-height: 0; /* Убирает зазор под картинкой */
     display: flex;
 }
 
