@@ -1143,29 +1143,47 @@
 
 <section id="portfolio" class="reveal">
     <h2>Портфолио</h2>
-    <div class="portfolio-grid">
-        <div class="polaroid" style="transform: rotate(-2deg); cursor: pointer;" onclick="toggleMainFolder()">
-            <div class="polaroid-img">ТЕКСТЫ</div>
-            <p class="hero-subtitle">Журналистика, редактура и копирайт</p>
-            <span id="folder-status" style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(ОТКРЫТЬ СПИСОК РАБОТ)</span>
+    <div class="portfolio-column">
+        <div class="polaroid-horizontal" onclick="toggleMediaFolder()">
+            <div class="polaroid-content">
+                <span class="case-num">01</span>
+                <div class="polaroid-img-text">РАЗВИТИЕ МЕДИА И ОХВАТЫ</div>
+                <p class="hero-subtitle">Масштабирование проектов, дистрибуция контента (КП, РБК)</p>
+                <span id="media-status" class="status-tag">(ОТКРЫТЬ КЕЙСЫ)</span>
+            </div>
         </div>
 
+        <div class="polaroid-horizontal" onclick="toggleAiFolder()">
+            <div class="polaroid-content">
+                <span class="case-num">02</span>
+                <div class="polaroid-img-text">КРЕАТИВНЫЙ ПРОДАКШЕН & AI</div>
+                <p class="hero-subtitle">UI/UX, b2b-сайты, внедрение нейросетей в производство</p>
+                <span id="ai-status" class="status-tag">(ОТКРЫТЬ ПРОЕКТЫ)</span>
+            </div>
+        </div>
 
-         <div class="polaroid" style="transform: rotate(-2deg); cursor: pointer;" onclick="toggleVideoFolder()">
-    <div class="polaroid-img">ВИДЕОПРОДАКШЕН</div>
-    <p class="hero-subtitle">Reels, сценарии, охваты</p>
-    <span id="video-folder-status" style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(ОТКРЫТЬ СПИСОК РАБОТ)</span>
-    </div>
+        <div class="polaroid-horizontal" onclick="toggleEventFolder()">
+            <div class="polaroid-content">
+                <span class="case-num">03</span>
+                <div class="polaroid-img-text">АРХИТЕКТУРА СОБЫТИЙ</div>
+                <p class="hero-subtitle">Проектирование опыта и смыслов мероприятий (Simple Wine, РБК)</p>
+                <span id="event-status" class="status-tag">(ОТКРЫТЬ ОПИСАНИЕ)</span>
+            </div>
+        </div>
+
+        <div class="polaroid-horizontal" onclick="toggleCommFolder()">
+            <div class="polaroid-content">
+                <span class="case-num">04</span>
+                <div class="polaroid-img-text">СТРАТЕГИЧЕСКИЕ КОММУНИКАЦИИ</div>
+                <p class="hero-subtitle">Работа со словом: колонки, PR-стратегии и гострайтинг</p>
+                <span id="comm-status" class="status-tag">(СМОТРЕТЬ ТЕКСТЫ)</span>
+            </div>
+        </div>
+          </div>
 
 
 
-<div class="polaroid" style="transform: rotate(-2deg); cursor: pointer;" onclick="toggleDesignFolder()">
-    <div class="polaroid-img">ДИЗАЙН</div>
-        <p class="hero-subtitle">UI/UX, b2b-сайты, упаковка смыслов</p>
-        <span id="design-folder-status" style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(ОТКРЫТЬ СПИСОК РАБОТ)</span>
-    </div>
-</div>
-
+    
         
 <div id="design-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
     <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите кейс:</h3>
