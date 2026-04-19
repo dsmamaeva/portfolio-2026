@@ -3404,6 +3404,65 @@
         grid-template-columns: 1fr;
     }
 }
+
+    .portfolio-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.polaroid-horizontal {
+    background: white;
+    border: 1px solid #eee;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.polaroid-horizontal:hover {
+    border-left: 8px solid var(--accent-red);
+    transform: translateX(10px);
+}
+
+.polaroid-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.case-num {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-red);
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.polaroid-img-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.status-tag {
+    font-size: 0.65rem;
+    color: var(--accent-red);
+    font-weight: bold;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* Эффект при открытии папки можно добавить через активный класс */
+.polaroid-horizontal.active {
+    background: #fdfdfd;
+    border-left: 8px solid var(--accent-red);
+}
 </style>
 
 <script>
@@ -5144,7 +5203,23 @@ function showDesignCase(caseId) {
         display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
-    
+    function toggleMediaFolder() {
+    // Логика открытия папки Развитие медиа
+    console.log("Открыт раздел Медиа");
+    // Здесь вызывай свою функцию отрисовки списка работ или оверлея
+}
+
+function toggleAiFolder() {
+    // Логика для Продакшена и AI
+}
+
+function toggleEventFolder() {
+    // Логика для Ивентов
+}
+
+function toggleCommFolder() {
+    // Логика для Текстов
+}
 </script>
 
 <script>
