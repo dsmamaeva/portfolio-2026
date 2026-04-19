@@ -5492,13 +5492,20 @@ function showDesignCase(caseId) {
     
 `
     };
-
-    if (designData[caseId]) {
+if (designData[caseId]) {
         content.innerHTML = designData[caseId];
         display.style.display = 'block';
-        display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Используем небольшой таймаут, чтобы браузер успел отрисовать контент перед скроллом
+        setTimeout(() => {
+            display.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    } else {
+        console.error('Кейс не найден:', caseId);
     }
-}
+
+
+    
 function toggleMediaFolder() {
     // Находим основной контейнер папки и элемент статуса на карточке
     const folder = document.getElementById('media-folder');
