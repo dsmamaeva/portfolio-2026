@@ -9,11 +9,19 @@
     <style>
         
 :root {
-    --bg-black: #0d0d0d;
-    --text-white: #ffffff;
-    /* Улучшенная плавная анимация */
-    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --mm-grid-gap: 40px; /* Увеличили зазоры для "воздуха" */
+    /* Ваши оригинальные цвета */
+    --accent-red: #8b1a1a;
+    --text-dark: #333;
+    
+    /* Переменные для структуры карточки */
+    --bg-light: #ffffff;
+    --card-shadow: rgba(0,0,0,0.06);
+    --accent-font: 'Playfair Display', serif;
+    --body-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Сохраненные переменные для таймлайна */
+    --timeline-row-height: 40px; 
+    --timeline-gap: 8px;
 }
 
         * {
@@ -151,79 +159,122 @@ body {
     .case-grid { grid-template-columns: 1fr; }
 }
 
-.hero-section {
+
+
+.hero-container {
     max-width: 1300px;
-    margin: 40px auto;
-    background-color: var(--bg-black);
-    border-radius: 50px; /* Закругленные края как на фото */
-    min-height: 85vh;
-    display: flex;
-    align-items: stretch;
+    margin: 20px auto 60px auto;
+    background-color: var(--bg-light);
+    border: 1px solid #f0f0f0;
+    border-radius: 50px; /* Фирменное закругление */
     overflow: hidden;
     position: relative;
-    padding: 60px;
-}
-
-/* Эффект зернистости (шума) */
-.hero-section::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.1;
-    pointer-events: none;
+    display: flex;
+    min-height: 80vh;
+    box-shadow: 0 15px 45px var(--card-shadow);
+    color: var(--text-dark);
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Лево: фото, Право: меню */
-    gap: 40px;
+    grid-template-columns: 1fr 1.2fr;
     width: 100%;
-    z-index: 1;
 }
 
-/* Стилизация заголовков-кнопок */
-.nav-grid {
+/* --- ПРАВАЯ ЧАСТЬ: МЕНЮ --- */
+.hero-nav {
+    padding: 50px 70px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
     align-content: center;
 }
 
+.user-profile {
+    grid-column: span 2;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--accent-red); /* Ваша красная линия */
+    padding-bottom: 15px;
+}
+
+.user-name {
+    font-family: var(--accent-font);
+    font-style: italic;
+    font-size: 2.3rem;
+    font-weight: normal;
+    text-transform: lowercase;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.user-role {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* --- КНОПКИ НАВИГАЦИИ --- */
 .nav-item {
     text-decoration: none;
-    color: var(--text-white);
-    transition: 0.3s;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
 }
 
-.nav-item:hover { opacity: 0.6; }
+.nav-item:hover { 
+    color: var(--accent-red); /* Переход в ваш красный при наведении */
+    transform: translateX(4px);
+}
 
-.nav-title {
-    font-family: 'Playfair Display', serif;
+.nav-number {
+    font-family: var(--accent-font);
     font-style: italic;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.nav-tag {
+    font-size: 0.65rem;
+    text-transform: lowercase;
+    color: var(--accent-red); /* Ваши красные метки */
+    font-weight: bold;
+    letter-spacing: 0.5px;
     display: block;
     margin-bottom: 5px;
 }
 
-.nav-category {
-    font-size: 0.75rem;
-    opacity: 0.5;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.nav-desc {
+.nav-name {
     font-weight: 700;
-    font-size: 1.1rem;
-    line-height: 1.2;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+.full-width {
+    grid-column: span 2;
+    margin-top: 10px;
+}
+
+/* --- ЛЕВАЯ ЧАСТЬ: ФОТО --- */
+.hero-photo {
+    background-color: #f9f9f9;
 }
 
 .hero-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) contrast(1.1); /* Эффект ЧБ как на фото */
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-container { border-radius: 35px; margin: 15px; }
+    .user-profile, .full-width { grid-column: span 1; }
+    .hero-nav { padding: 40px 30px; gap: 25px; }
+    .hero-photo { height: 400px; }
+    .user-name { font-size: 1.8rem; }
 }
 
         .marquee {
@@ -639,6 +690,10 @@ body {
 
         <div class="nav-grid">
             
+            <div class="user-profile">
+    <h1 class="user-name">дарья мамаева</h1>
+    <p class="user-role">PR-менеджер, Специалист по связям с общественностью</p>
+</div>
             <a href="#about" class="nav-item">
                 <span class="nav-title">01. обо мне</span>
                 <span class="nav-category">[личное]</span>
@@ -1564,13 +1619,7 @@ body {
     }
 }
     
-    /* --- 1. ОБЩИЕ СТИЛИ ЛЕНДИНГА (Сохранено) --- */
-    :root {
-        --accent-red: #8b1a1a;
-        --text-dark: #333;
-        --timeline-row-height: 40px; 
-    --timeline-gap: 8px;
-    }
+
 
     
 
