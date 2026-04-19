@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева. | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -46,6 +46,22 @@
     align-items: center;
     background-color: var(--bg-cream);
     border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+        .portfolio-folder {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s ease;
+    background: rgba(255, 255, 255, 0.3); /* Легкий эффект наложенной бумаги */
+    border-left: 1px solid var(--accent-red);
+    margin-top: 10px;
+}
+
+        .portfolio-folder.active {
+    max-height: 5000px; /* Достаточно для любого контента */
+    opacity: 1;
+    padding-bottom: 40px;
 }
 
         /* Стили оверлея */
@@ -1165,7 +1181,7 @@
 <section id="portfolio" class="reveal">
     <h2>Портфолио</h2>
     <div class="portfolio-grid-new">
-        <div class="portfolio-card-square" onclick="toggleMediaFolder()">
+        <div class="portfolio-card-square" onclick="toggleFolder('media-folder', 'media-btn')">
             <div class="card-content">
                 <span class="card-num">01</span>
                 <div class="card-title">Развитие медиа и охваты</div>
@@ -1174,7 +1190,7 @@
             </div>
         </div>
 
-        <div class="portfolio-card-square" onclick="toggleAiFolder()">
+        <div class="portfolio-card-square" onclick="toggleFolder('media-folder', 'media-btn')">
             <div class="card-content">
                 <span class="card-num">02</span>
                 <div class="card-title">Креативный продакшен & AI</div>
@@ -1183,7 +1199,7 @@
             </div>
         </div>
 
-        <div class="portfolio-card-square" onclick="toggleEventFolder()">
+        <div class="portfolio-card-square" onclick="toggleFolder('media-folder', 'media-btn')">
             <div class="card-content">
                 <span class="card-num">03</span>
                 <div class="card-title">Архитектура событий</div>
@@ -1192,7 +1208,7 @@
             </div>
         </div>
 
-        <div class="portfolio-card-square" onclick="toggleCommFolder()">
+        <div class="portfolio-card-square" onclick="toggleFolder('media-folder', 'media-btn')">
             <div class="card-content">
                 <span class="card-num">04</span>
                 <div class="card-title">Стратегические коммуникации</div>
@@ -3048,18 +3064,19 @@
 }
 
 .exp-toggle {
-    background: none;
-    border: 1px solid var(--accent-red);
-    color: var(--accent-red);
-    padding: 5px 15px;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    padding: 5px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--accent-red);
     transition: var(--transition);
 }
 
 .exp-toggle:hover {
-    background: var(--accent-red);
-    color: white;
+    letter-spacing: 1px;
+    opacity: 0.7;
 }
 
 /* Раскрывающееся меню */
@@ -4834,6 +4851,28 @@ perfume: `
             status.innerText = '(ОТКРЫТЬ СПИСОК РАБОТ)';
         }
     }
+
+
+
+    // УНИВЕРСАЛЬНАЯ ФУНКЦИЯ ДЛЯ ПАПОК
+function toggleFolder(folderId, btnId) {
+    const folder = document.getElementById(folderId);
+    const btn = document.getElementById(btnId);
+    
+    // Переключаем класс active для плавной анимации
+    folder.classList.toggle('active');
+    
+    // Меняем текст кнопки с сохранением стиля
+    if (folder.classList.contains('active')) {
+        btn.innerText = '(ЗАКРЫТЬ)';
+        // Плавный скролл к началу открытой папки
+        setTimeout(() => {
+            folder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    } else {
+        btn.innerText = '(ОТКРЫТЬ)';
+    }
+}
 
     function showArticle(key) {
         const display = document.getElementById('article-display');
