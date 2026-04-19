@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-cream: #fdfaf5;
-            --accent-red: #8b1a1a;
-            --text-dark: #1a1a1a;
-            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --mm-grid-gap: 25px;
-        }
+    --bg-cream: #fdfaf5;
+    --accent-red: #8b1a1a;
+    --text-dark: #1a1a1a;
+    /* Улучшенная плавная анимация */
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --mm-grid-gap: 40px; /* Увеличили зазоры для "воздуха" */
+}
 
         * {
             margin: 0;
@@ -22,20 +23,30 @@
         }
 
         body {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.5;
-        }
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+        section, .container {
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+        .text-nav-btn, .exp-toggle, .btn-main {
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
 
         header {
-            height: 100vh;
-            display: flex;
-            align-items: center; /* Центрирование по вертикали */
-            background-color: var(--bg-cream);
-            overflow: hidden; /* Чтобы фото не вылезало */
-            position: relative;
-        }
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-cream);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
 
         /* Стили оверлея */
 .overlay {
@@ -141,15 +152,10 @@
     .case-grid { grid-template-columns: 1fr; }
 }
 
-        /* Контейнер для текста (слева) */
-        .hero-text-container {
-            flex: 1; /* Занимает 50% ширины */
-            padding: 0 10%; /* Отступы для воздуха */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            z-index: 2;
-        }
+.hero-text-container {
+    flex: 1.2; 
+    padding: 0 5% 0 8%;
+}
 
         .hero-title {
             font-family: 'Playfair Display', serif;
@@ -170,11 +176,17 @@
         }
 
         /* Контейнер для фото (справа) */
-        .hero-image-container {
-            flex: 1; /* Занимает 50% ширины */
-            height: 100%;
-            position: relative;
-        }
+.hero-image-container {
+    flex: 0.8;
+    height: 90vh; /* Чуть короче экрана для эффекта паспарту */
+    margin-right: 40px;
+    position: relative;
+    filter: sepia(15%) contrast(105%); /* Легкий винтажный фильтр */
+    transition: var(--transition);
+}
+        .hero-image-container:hover {
+    filter: sepia(0%) contrast(110%); /* Оживает при наведении */
+}
 
         .hero-photo {
             width: 100%;
@@ -214,8 +226,14 @@
                 width: 100%;
             }
             .hero-title {
-                font-size: 3rem;
-            }
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 10vw, 7.5rem); /* Еще крупнее и акцентнее */
+    color: var(--accent-red);
+    text-transform: uppercase;
+    line-height: 0.85;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+}
         }
 
         .hero-title {
@@ -227,11 +245,14 @@
             margin-bottom: 20px;
         }
 
-        .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.5rem;
-        }
+.hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    border-left: 2px solid var(--accent-red);
+    padding-left: 20px;
+    max-width: 500px;
+}
 
         .marquee {
             background: var(--accent-red);
@@ -1596,12 +1617,11 @@
         cursor: pointer;
         transition: all 0.3s ease;
     }
-    .text-nav-btn:hover {
-        background: var(--accent-red);
-        color: white;
-        border-color: var(--accent-red);
-        padding-left: 35px;
-    }
+.text-nav-btn:hover {
+    background: var(--accent-red);
+    color: white !important;
+    letter-spacing: 2px; /* Эффект "растяжения" при наведении */
+}
     .text-nav-btn.active {
         background: var(--accent-red);
         color: white;
