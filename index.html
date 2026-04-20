@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева. | Портфолио</title>
    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         
@@ -794,12 +794,8 @@ body {
 
 
 
-<section class="experience-layout">
- 
-    
-    <div class="container-split">
-        
-<aside class="side-panel">
+<section class="experience-layout" id="experience">
+    <div class="main-grid"> <aside class="side-panel">
     <div class="info-block" id="about">
 
 
@@ -4096,6 +4092,38 @@ body {
     border: 0;
     border-top: 0.5px solid #eee;
     margin: 20px 0;
+}
+
+    /* Обнуляем все отступы у секций, которые дублируют друг друга */
+.experience-layout, 
+.section-padding, 
+.container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Настраиваем единую сетку */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start; /* Это выровняет заголовки по верхней границе */
+    padding-top: 80px; /* Весь воздух переносим сюда, на самый верхний уровень */
+}
+
+/* Убираем "двоение" линий у заголовков */
+.mono-label {
+    display: block;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 25px;
+    border: none; /* Убираем рамки, если они где-то прописаны */
+}
+
+/* Чтобы правая колонка не имела своей отдельной рамки сверху */
+.experience-timeline {
+    border-top: none !important;
+    padding-top: 0 !important;
 }
 </style>
 
