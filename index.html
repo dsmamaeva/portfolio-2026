@@ -2885,7 +2885,7 @@ body {
 
     .experience-layout {
     background: #fdfaf7;
-    padding: 80px 40px;
+    padding-bottom: 0 !important;
 }
 
 .container-split {
@@ -4005,7 +4005,8 @@ body {
 
     /* 1. Внешняя оболочка секции */
 .timeline-section {
-    padding: 80px 0;
+    padding-top: 0 !important;    /* Убираем отступ сверху у таймлайна */
+    margin-top: -20px;
     background-color: transparent;
 }
 
@@ -4013,6 +4014,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
+    padding-top: 0 !important;
 }
 
 /* Белая карточка, в которой лежит график */
@@ -4023,6 +4025,8 @@ body {
     box-shadow: 0 20px 50px rgba(0,0,0,0.04);
     overflow-x: auto; /* Включает прокрутку на мобильных */
     -webkit-overflow-scrolling: touch;
+    margin-top: 0 !important;
+    padding-top: 30px;
 }
 
 /* Скрываем некрасивый стандартный скроллбар */
@@ -4128,6 +4132,10 @@ body {
     color: #999;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+    .timeline-section .mono-label {
+    margin-top: 0 !important;
+    margin-bottom: 20px;
 }
 </style>
 
